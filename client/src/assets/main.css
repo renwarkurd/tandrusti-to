@@ -1,0 +1,28 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'kurdish_font';
+  src: url('../src/assets/fonts/kurdish-font.woff2') format('woff2'),
+    url('../src/assets/fonts/kurdish-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.bg-sm-green {
+  background-color: #00BFA6 !important;
+}
+
+.text-sm-green {
+  color: #00BFA6 !important;
+}
+
+html,
+body {
+  font-family: sans-serif, 'kurdish_font';
+  margin: 0px;
+  padding: 0px;
+}
