@@ -18,36 +18,13 @@ class Patient extends Model
     public const PASSPORT = 'پاسپۆرت';
 
     public $fillable = [
-        'user_id',
-        'code',
-        'code_type',
-        'first_name',
-        'middle_name',
-        'last_name',
-        'gender',
-        'dob_year',
-        'dob_month',
-        'dob_day',
-        'city_id',
-        'occupation',
-        'address',
-        'contact_1',
-        'contact_2',
-        'marital_status',
-        'blood_group',
-        'spouse_fullname',
-        'spouse_dob',
-        'spouse_contact',
-        'spouse_occupation',
+        'user_id', 'code', 'code_type', 'first_name', 'middle_name', 'last_name', 'gender', 'dob_year', 'dob_month', 'dob_day', 'city_id', 'occupation', 'address', 'contact_1', 'contact_2', 'marital_status', 'blood_group', 'spouse_fullname', 'spouse_dob', 'spouse_contact', 'spouse_occupation', 'input_date'
     ];
 
     protected $appends = [
         'full_name',
         'calculated_age',
         'dob',
-        // 'spouse_dob_year',
-        // 'spouse_dob_month',
-        // 'spouse_dob_day',
     ];
 
     protected function fullName(): Attribute

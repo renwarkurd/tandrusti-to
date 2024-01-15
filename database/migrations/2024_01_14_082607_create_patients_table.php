@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('spouse_dob')->nullable();
             $table->string('spouse_contact')->nullable();
             $table->string('spouse_occupation')->nullable();
+            $table->date('input_date');
             $table->softDeletes();
             $table->timestamps();
         });

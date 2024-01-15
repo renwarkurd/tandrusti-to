@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('patient_id')->constrained();
-            $table->foreignId('provider_id')->constrained();
-            $table->string('name')->nullable();
             $table->text('filename');
+            $table->date('input_date');
             $table->softDeletes();
             $table->timestamps();
         });
