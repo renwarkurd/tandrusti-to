@@ -10,7 +10,9 @@ const form = ref({
 })
 
 function login() {
-  router.push('/patient-view')
+  if (form.value.code) {
+    router.push('/patient-view', )
+  }
 }
 
 function loginAsUser() {
@@ -71,7 +73,7 @@ function loginAsUser() {
             :model="form"
             label-position="top"
           >
-            <el-form-item label="جۆری کۆدەکە دەستنیشان بکە">
+            <el-form-item label="جۆری کۆدەکەت دەستنیشان بکە">
               <el-radio-group
                 v-model="form.code_type"
                 size="large"
@@ -81,10 +83,10 @@ function loginAsUser() {
               </el-radio-group>
             </el-form-item>
 
-            <el-form-item label="ژمارەی کۆد">
+            <el-form-item label="کۆد">
               <el-input
                 v-model="form.code"
-                placeholder="ژمارەی کۆد بنووسە"
+                placeholder="کۆدەکەت لێرە بنووسە"
               />
             </el-form-item>
 
@@ -93,7 +95,7 @@ function loginAsUser() {
                 color="#00BFA6"
                 @click="login()"
               >
-                <span class="text-white"> چوونە ژوورەوە </span>
+                <span class="text-white">بینینەوەی داتاکانم</span>
               </el-button>
             </el-form-item>
           </el-form>
