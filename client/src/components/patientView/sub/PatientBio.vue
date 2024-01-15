@@ -27,16 +27,16 @@ const patient = computed(() => props.patient)
           <td>
             <div class="flex">
               <span>{{ patient.calculated_age.y }} ساڵ</span>
-              <span class="mx-1">, </span>
+              <span class="mx-">, </span>
               <span>{{ patient.calculated_age.m }} مانگ</span>
-              <span class="mx-1">, </span>
+              <span class="mx-">, </span>
               <span>{{ patient.calculated_age.d }} ڕۆژ</span>
             </div>
           </td>
         </tr>
         <tr>
           <td class="font-bold">جۆری کۆد</td>
-          <td>کارتی نیشتیمانی</td>
+          <td>{{ code }}</td>
         </tr>
         <tr>
           <td class="font-bold">کۆد</td>

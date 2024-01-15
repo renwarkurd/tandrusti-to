@@ -32,6 +32,17 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin',
         ]);
 
+        \App\Models\CodeType::create([
+            'id' => 1,
+            'user_id' => 1,
+            'name' => 'کارتی نیشتمانی',
+        ]);
+        \App\Models\CodeType::create([
+            'id' => 2,
+            'user_id' => 1,
+            'name' => 'پاسپۆرت',
+        ]);
+
         City::factory()->count(10)->create();
         Patient::factory()->count(30)->create();
         History::factory()->count(16)->create();
