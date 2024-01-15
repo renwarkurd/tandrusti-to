@@ -53,6 +53,7 @@ Route::get('provider/attachment/{file_name?}', function ($file_name) {
  * Example Routes should be started with: /api/provider/.....
  */
 Route::middleware(['auth:sanctum', 'abilities:is-provider'])->prefix('provider')->group(function () {
+    // Patient
     Route::post('patient', [RestApiPatientController::class, 'storePatient']);
     Route::post('patient/history', [RestApiPatientController::class, 'storeHistory']);
     Route::post('patient/operation', [RestApiPatientController::class, 'storeOperation']);
@@ -62,6 +63,9 @@ Route::middleware(['auth:sanctum', 'abilities:is-provider'])->prefix('provider')
     Route::post('patient/laboratory', [RestApiPatientController::class, 'storeLaboratory']);
     Route::post('patient/radiology', [RestApiPatientController::class, 'storeRadiology']);
     Route::post('patient/general', [RestApiPatientController::class, 'storeGeneral']);
+
+    // City
+    Route::get('city', [CityController::class, 'list']);
 });
 //============================================== End: Provider-API ==============================================
 
