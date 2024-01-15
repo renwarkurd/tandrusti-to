@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BaseDataController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\ViewPatientController;
 use App\Http\Controllers\RestApi\RestApiPatientController;
@@ -66,6 +69,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-provider'])->prefix('provider')
 
     // City
     Route::get('city', [CityController::class, 'list']);
+    Route::get('base-data', [BaseDataController::class, 'index']);
 });
 //============================================== End: Provider-API ==============================================
 
@@ -139,6 +143,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
 
     // City
     Route::get('city', [CityController::class, 'list']);
+    Route::get('base-data', [BaseDataController::class, 'index']);
 });
 //============================================== End: System(Local)-API ==============================================
 
