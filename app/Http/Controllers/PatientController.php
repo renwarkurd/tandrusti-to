@@ -10,6 +10,9 @@ use App\Models\Medication;
 use App\Models\GeneralNote;
 use Illuminate\Http\Request;
 use App\Models\Physiotherapy;
+use App\Models\RadiologyResult;
+use App\Models\LaboratoryResult;
+use Illuminate\Support\Facades\Storage;
 
 class PatientController extends Controller
 {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use App\Models\History;
+use App\Models\CodeType;
 use App\Models\Diagnosis;
 use App\Models\Operation;
 use App\Traits\ForUserId;
@@ -36,6 +37,16 @@ class Patient extends Model
     ];
 
     // Relations
+    public function codeType()
+    {
+        return $this->belongsTo(CodeType::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
     public function histories()
     {
         return $this->hasMany(History::class);

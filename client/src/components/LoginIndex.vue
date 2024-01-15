@@ -94,6 +94,7 @@ function loginAsUser() {
               <el-button
                 color="#00BFA6"
                 @click="login()"
+                :disabled="!form.code"
               >
                 <span class="text-white">بینینەوەی داتاکانم</span>
               </el-button>

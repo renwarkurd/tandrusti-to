@@ -10,6 +10,8 @@ class ViewPatientController extends Controller
     {
         $patient = Patient::query()
             ->with([
+                'codeType',
+                'city',
                 'histories',
                 'diagnoses',
                 'operations',
