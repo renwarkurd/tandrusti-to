@@ -24,7 +24,7 @@ class PatientController extends Controller
             'first_name' => ['required', 'string'],
             'middle_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
-            'gender' => ['required', 'boolean', 'in:0,1'],
+            'gender' => ['required', 'in:0,1'],
             'dob_year' => ['required', 'integer'],
             'dob_month' => ['required', 'integer'],
             'dob_day' => ['required', 'integer'],

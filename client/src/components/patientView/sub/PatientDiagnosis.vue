@@ -23,24 +23,21 @@ const items = computed(() => props.items)
       class="pb-4"
     >
       <div class="border bg-white rounded-lg p-3">
-        <table>
-          <tbody>
-            <tr
-              v-for="(item, index) in items"
-              :key="index"
-            >
-              <td
-                colspan="2"
-                class="text-center font-bold text-lg border-0 text-sm-green"
-              >
-                {{ item.description }} by {{ item.user.name }} at
-                <span class="text-center pb-4 text-gray-500">
-                  {{ item.user.created_at }}
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <div class="">
+            <div>#{{ index + 1 }}</div>
+            <div>
+              {{ item.description }}
+            </div>
+            <div>
+              <span>by {{ item.user.name }}</span>
+              <span class="text-center pb-4 text-gray-500">at {{ item.user.created_at }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </el-col>
   </el-row>
