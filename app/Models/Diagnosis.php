@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\ForUserId;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Diagnosis extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ForUserId;
 
     protected $fillable = [
-        'user_id',
-        'patient_id',
-        'provider_id',
-        'name',
+        'user_id', 'patient_id', 'description', 'input_date'
     ];
 }

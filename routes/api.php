@@ -50,6 +50,14 @@ Route::get('client/attachment/{file_name?}', function ($file_name) {
  */
 Route::middleware(['auth:sanctum', 'abilities:is-client'])->prefix('client')->group(function () {
     Route::post('patient', [RestApiPatientController::class, 'storePatient']);
+    Route::post('patient/history', [RestApiPatientController::class, 'storeHistory']);
+    Route::post('patient/operation', [RestApiPatientController::class, 'storeOperation']);
+    Route::post('patient/diagnosis', [RestApiPatientController::class, 'storeDiagnosis']);
+    Route::post('patient/medication', [RestApiPatientController::class, 'storeMedication']);
+    Route::post('patient/physiotherapy', [RestApiPatientController::class, 'storePhysiotherapy']);
+    Route::post('patient/laboratory', [RestApiPatientController::class, 'storeLaboratory']);
+    Route::post('patient/radiology', [RestApiPatientController::class, 'storeRadiology']);
+    Route::post('patient/general', [RestApiPatientController::class, 'storeGeneral']);
 });
 //============================================== End: Client-API ==============================================
 
