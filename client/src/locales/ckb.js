@@ -2,7 +2,7 @@ const ckb = {
   "hello": "سڵاو",
   "Medical History": "مێژووی تەندرووستی",
   "Medication": "دەرمانەکان",
-  "Diagnosis": "Diagnosis",
+  "Login as user": "چوونەژوورەوە وەک بەکارهێنەر",
   "END": "END"
 }
 

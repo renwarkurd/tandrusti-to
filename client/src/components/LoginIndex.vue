@@ -10,7 +10,7 @@ const form = ref({
 })
 
 function login() {
-  router.push('/home')
+  router.push('/patient-view')
 }
 </script>
 
@@ -25,7 +25,7 @@ function login() {
         :xs="24"
         :sm="24"
         :md="16"
-        :lg="16"
+        :lg="14"
         :xl="16"
       >
         <img
@@ -40,10 +40,20 @@ function login() {
         :xs="24"
         :sm="24"
         :md="8"
-        :lg="8"
+        :lg="10"
         :xl="8"
       >
-        <div class="border bg-white rounded-lg shadow-sm mx-14 py-5 px-6">
+        <div class="m-3 text-end">
+          <el-button
+          color="#00BFA6"
+          @click="loginAsUser()"
+        >
+          <span class="text-white">
+            {{ $t('Login as user') }}
+          </span>
+        </el-button>
+        </div>
+        <div class="border bg-white rounded-lg shadow-sm  py-5 px-6">
           <div class="mb-7 text-xl text-center">
             بەخێربێیت بۆ پۆڕتاڵی
             <span class="text-sm-green">تەندرووستی تۆ</span>
