@@ -28,23 +28,6 @@ const items = computed(() => props.items)
         <table>
           <tbody>
             <tr>
-              <td
-                colspan="2"
-                class="text-center font-bold text-lg border-0 text-sm-green"
-              >
-                {{ item.user.name }}
-              </td>
-            </tr>
-            <tr>
-              <td
-                colspan="2"
-                class="text-center pb-4 text-gray-500"
-              >
-                {{ item.created_at }}
-              </td>
-            </tr>
-
-            <tr>
               <td class="font-bold">{{ $t('Chief Complaint') }}</td>
               <td>
                 <div>
@@ -130,6 +113,15 @@ const items = computed(() => props.items)
             <tr>
               <td class="font-bold">{{ $t('Note') }}</td>
               <td>{{ item.note }}</td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <div class="flex text-gray-500 justify-end">
+                  <em class="me-3">by {{ item.user.name }}</em>
+                  <em class="">at {{ item.user.created_at }}</em>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

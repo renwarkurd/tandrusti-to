@@ -10,7 +10,7 @@ const items = computed(() => props.items)
   <el-row>
     <el-col :xs="24">
       <div class="border bg-white rounded-lg p-3 mb-3">
-        <div class="text-center font-bold text-lg border-0 text-sm-green">{{ $t('Diagnosis') }}</div>
+        <div class="text-center font-bold text-lg border-0 text-sm-green">{{ $t('Physiotherapy') }}</div>
       </div>
     </el-col>
 

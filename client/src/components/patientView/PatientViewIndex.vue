@@ -2,7 +2,12 @@
 import PatientBio from './sub/PatientBio.vue'
 import PatientHistory from './sub/PatientHistory.vue'
 import PatientMedication from './sub/PatientMedication.vue'
+import PatientOperation from './sub/PatientOperation.vue'
 import PatientDiagnosis from './sub/PatientDiagnosis.vue'
+import PatientPhysiotherapy from './sub/PatientPhysiotherapy.vue'
+import PatientGeneral from './sub/PatientGeneral.vue'
+import PatientLaboratory from './sub/PatientLaboratory.vue'
+import PatientRadiology from './sub/PatientRadiology.vue'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { useRoute } from 'vue-router'
@@ -57,7 +62,7 @@ onMounted(() => {
               :lg="12"
               :xl="12"
             >
-              <PatientMedication :items="patient.medications" />
+              <PatientDiagnosis :items="patient.diagnosis" />
             </el-col>
             <el-col
               :xs="24"
@@ -66,7 +71,58 @@ onMounted(() => {
               :lg="12"
               :xl="12"
             >
-              <PatientDiagnosis :items="patient.diagnosis" />
+              <PatientOperation :items="patient.operations" />
+            </el-col>
+          </el-row>
+          <el-row :gutter="10">
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="12"
+              :xl="12"
+            >
+              <PatientPhysiotherapy :items="patient.physiotherapies" />
+            </el-col>
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="12"
+              :xl="12"
+            >
+              <PatientMedication :items="patient.medications" />
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="24"
+              :lg="24"
+              :xl="24"
+            >
+              <PatientGeneral :items="patient.general_notes" />
+            </el-col>
+          </el-row>
+           <el-row :gutter="10">
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="12"
+              :xl="12"
+            >
+              <PatientLaboratory :items="patient.laboratory_results" />
+            </el-col>
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="12"
+              :xl="12"
+            >
+              <PatientRadiology :items="patient.radiology_results" />
             </el-col>
           </el-row>
         </div>
