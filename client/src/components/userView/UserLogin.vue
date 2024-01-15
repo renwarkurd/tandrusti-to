@@ -12,7 +12,7 @@ const form = ref({
 
 function login() {
   axios.post('login', form.value).then((res) => {
-    console.log(res.data)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
   })
 }
 </script>
