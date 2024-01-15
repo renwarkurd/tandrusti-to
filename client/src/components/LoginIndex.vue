@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const form = ref({
-  code_type: null,
+  code_type: 'کارتی نیشتمانی',
   code: null,
 })
 
