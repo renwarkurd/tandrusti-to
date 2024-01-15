@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { Search } from '@element-plus/icons-vue'
+// import { Search,  } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -30,8 +30,12 @@ const options = ref([
   },
 ])
 
-function register() {
+function registerPatient() {
   router.push({ name: 'add-patient' })
+}
+
+function registerProvider() {
+  router.push({ name: 'add-provider' })
 }
 
 function viewPatient() {
@@ -52,8 +56,8 @@ function viewPatient() {
           :xs="20"
           :sm="20"
           :md="16"
-          :lg="10"
-          :xl="10"
+          :lg="8"
+          :xl="8"
         >
           <el-select
             v-model="ptSearch"
@@ -75,15 +79,42 @@ function viewPatient() {
           :xs="4"
           :sm="4"
           :md="4"
-          :lg="4"
-          :xl="4"
+          :lg="2"
+          :xl="2"
         >
           <el-button
             type="primary"
-            @click="register()"
+            @click="registerPatient()"
           >
-            {{ $t('Register') }}
+            {{ $t('Register Patient') }}
           </el-button>
+        </el-col>
+
+        <el-col
+          :xs="4"
+          :sm="14"
+          class="text-end"
+        >
+          <el-button
+            type="primary"
+            plain
+            class="mx-4"
+            @click="registerProvider()"
+          >
+            {{ $t('Register Provider') }}
+          </el-button>
+
+          <el-dropdown trigger="click">
+            <el-button text>
+              {{ $t('Admin') }}
+              <el-icon class="ms-2"><ArrowDown /></el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>{{ $t('Logout') }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
         </el-col>
       </el-row>
     </el-header>
