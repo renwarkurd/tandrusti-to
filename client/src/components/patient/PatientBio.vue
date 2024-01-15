@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <div class="border-1 rounded-lg p-3 shadow-sm">
-    <table class="table">
+  <div class="border rounded-lg p-3">
+    <table>
       <tbody>
         <tr>
           <td colspan="2" class="text-center font-bold text-lg pb-4 border-0 text-sm-green">

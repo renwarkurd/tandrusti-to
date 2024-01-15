@@ -26,3 +26,21 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+table tbody tr td {
+  border-bottom: 1px solid #edecec;
+  padding: 0.3rem 0.5rem;
+}
+
+table tbody tr {
+  transition: all ease-in-out 0.10s;
+}
+
+table tbody tr:hover {
+  background-color: #eef0f09b;
+}
