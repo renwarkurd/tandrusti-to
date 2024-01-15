@@ -7,10 +7,8 @@ const messages = {
   ckb: { ...ckb }
 }
 
-console.log(messages)
-
 export default createI18n({
-  locale: 'en',
+  locale: 'ckb',
   fallbackLocale: 'en',
   messages: messages
 })

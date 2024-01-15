@@ -1,6 +1,8 @@
 <script setup>
 import PatientBio from './patient/PatientBio.vue'
 import PatientHistory from './patient/PatientHistory.vue'
+import PatientMedication from './patient/PatientMedication.vue'
+import PatientDiagnosis from './patient/PatientDiagnosis.vue'
 </script>
 
 <template>
@@ -22,10 +24,16 @@ import PatientHistory from './patient/PatientHistory.vue'
         :xs="24"
         :sm="12"
         :md="8"
-        :lg="8"
+        :lg="16"
         :xl="16"
       >
-        <PatientHistory />
+        <div style="height: 100vh; overflow-y: scroll;">
+          <PatientHistory />
+
+          <PatientMedication />
+          
+          <PatientDiagnosis />
+        </div>
       </el-col>
     </el-row>
   </div>

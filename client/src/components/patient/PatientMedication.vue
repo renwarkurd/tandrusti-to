@@ -8,7 +8,7 @@ const result = ref([1])
   <el-row :gutter="20">
     <el-col :xs="24">
       <div class="border bg-white rounded-lg p-3 mb-3">
-        <div class="text-center font-bold text-lg border-0 text-sm-green">{{ $t('Medical History') }}</div>
+        <div class="text-center font-bold text-lg border-0 text-sm-green">{{ $t('Medication') }}</div>
       </div>
     </el-col>
 

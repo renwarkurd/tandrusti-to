@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="border rounded-lg p-3">
+  <div class="border bg-white rounded-lg p-3">
     <table>
       <tbody>
         <tr>
