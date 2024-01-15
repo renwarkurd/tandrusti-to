@@ -14,7 +14,7 @@ const router = createRouter({
       component: () => import('../components/userView/UserLogin.vue')
     },
     {
-      path: '/patient-view',
+      path: '/patient-view/{code}',
       name: 'patient-view',
       component: () => import('../components/patientView/PatientViewIndex.vue')
     },
