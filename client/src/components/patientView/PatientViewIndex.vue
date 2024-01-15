@@ -44,12 +44,31 @@ onMounted(() => {
         :lg="16"
         :xl="16"
       >
-        <div style="height: 100vh; overflow-y: scroll">
+        <div
+          style="height: 95vh; overflow-y: scroll"
+          class="p-4"
+        >
           <PatientHistory :items="patient.histories" />
-
-          <PatientMedication :items="patient.medications" />
-
-          <PatientDiagnosis :items="patient.diagnosis" />
+          <el-row :gutter="10">
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="12"
+              :xl="12"
+            >
+              <PatientMedication :items="patient.medications" />
+            </el-col>
+            <el-col
+              :xs="24"
+              :sm="24"
+              :md="12"
+              :lg="12"
+              :xl="12"
+            >
+              <PatientDiagnosis :items="patient.diagnosis" />
+            </el-col>
+          </el-row>
         </div>
       </el-col>
     </el-row>

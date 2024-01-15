@@ -40,6 +40,8 @@ class PatientController extends Controller
             'spouse_contact' => ['nullable', 'string'],
             'spouse_occupation' => ['nullable', 'string'],
         ]);
+        
+        $validated['input_date'] = date('Y-m-d');
 
         $patient = Patient::create($validated);
 

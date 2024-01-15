@@ -98,6 +98,7 @@ class RestApiPatientController extends Controller
         }
 
         $validated['patient_id'] = $patient->id;
+        $validated['input_date'] = date('Y-m-d');
 
         $history = History::create($validated);
 

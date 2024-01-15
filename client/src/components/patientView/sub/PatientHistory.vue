@@ -7,7 +7,7 @@ const items = computed(() => props.items)
 </script>
 
 <template>
-  <el-row :gutter="20">
+  <el-row>
     <el-col :xs="24">
       <div class="border bg-white rounded-lg p-3 mb-3">
         <div class="text-center font-bold text-lg border-0 text-sm-green">{{ $t('Medical History') }}</div>
@@ -19,9 +19,9 @@ const items = computed(() => props.items)
       :key="index"
       :xs="24"
       :sm="24"
-      :md="12"
-      :lg="12"
-      :xl="12"
+      :md="24"
+      :lg="24"
+      :xl="24"
       class="pb-4"
     >
       <div class="border bg-white rounded-lg p-3">
@@ -46,9 +46,13 @@ const items = computed(() => props.items)
 
             <tr>
               <td class="font-bold">{{ $t('Chief Complaint') }}</td>
-              <td>{{ item.chief_complaint }}</td>
-              <td class="font-bold">{{ $t('Duration') }}</td>
-              <td>{{ item.cheif_complaint_duration }}</td>
+              <td>
+                <div>
+                  <span>{{ item.chief_complaint }}</span>
+                  <b class="ms-5 me-2">{{ $t('Duration') }}</b>
+                  <span>{{ item.cheif_complaint_duration }}</span>
+                </div>
+              </td>
             </tr>
             <tr>
               <td class="font-bold">{{ $t('H.O.P.I') }}</td>
@@ -134,4 +138,11 @@ const items = computed(() => props.items)
   </el-row>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+tr {
+  td:first-of-type {
+    white-space: pre;
+    text-align: right;
+  }
+}
+</style>

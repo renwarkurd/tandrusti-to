@@ -13,7 +13,7 @@ trait ForUserId
     if (!app()->runningInConsole() && auth()->check()) {
       static::creating(function (Model $model) {
         $model
-          ->setAttribute('created_by_id', auth()->user()->id);
+          ->setAttribute('user_id', auth()->user()->id);
       });
     }
   }
