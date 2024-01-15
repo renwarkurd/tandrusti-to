@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\ViewPatientController;
@@ -131,6 +132,9 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
     Route::post('patient/laboratory', [PatientController::class, 'storeLaboratory']);
     Route::post('patient/radiology', [PatientController::class, 'storeRadiology']);
     Route::post('patient/general', [PatientController::class, 'storeGeneral']);
+
+    // City
+    Route::get('city', [CityController::class, 'list']);
 });
 //============================================== End: System(Local)-API ==============================================
 
