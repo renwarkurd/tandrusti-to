@@ -6,7 +6,7 @@ use App\Models\Patient;
 
 class ViewPatientController extends Controller
 {
-    public function show($codeType, $code)
+    public function show($code)
     {
         $patient = Patient::query()
             ->with([
@@ -19,7 +19,6 @@ class ViewPatientController extends Controller
                 'radiologyResults',
                 'generalNotes',
             ])
-            ->where('code_type', $codeType)
             ->where('code', $code)
             ->firstOrFail();
 

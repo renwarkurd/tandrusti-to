@@ -27,6 +27,10 @@ class AuthController extends Controller
             return response(['message' => 'Password is incorrect.'], 422);
         }
 
+        if ($user->is_provider) {
+            return response(['message' => 'You are unauthorized to login directly in this portal.'], 422);
+        }
+
         $token = $user->createToken('auth', ['is-system']);
 
         return ['token' => $token->plainTextToken, 'user' => $user];

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\PersonalAccessToken;
 
-class GetRequestTokenAuthenticateClient
+class GetRequestTokenAuthenticateProvider
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class GetRequestTokenAuthenticateClient
      */
     public function handle(Request $request, Closure $next)
     {
-        $token = PersonalAccessToken::findToken($request->token)->can('is-client');
+        $token = PersonalAccessToken::findToken($request->token)->can('is-provider');
 
         if ($token) {
             return $next($request);
