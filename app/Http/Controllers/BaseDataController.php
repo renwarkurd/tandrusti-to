@@ -10,8 +10,14 @@ class BaseDataController extends Controller
     {
         return [
             'code_types' => [
-                '1' => 'کارتی نیشتمانی',
-                '2' => 'پاسپۆرت'
+                [
+                    'id' => 1,
+                    'name' => 'کارتی نیشتمانی'
+                ],
+                [
+                    'id' => 2,
+                    'name' => 'پاسپۆرت'
+                ],
             ],
             'cities' => City::select('id', 'name')->get(),
         ];

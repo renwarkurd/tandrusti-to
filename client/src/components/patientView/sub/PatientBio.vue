@@ -1,21 +1,38 @@
-<script setup></script>
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps(['patient'])
+
+const patient = computed(() => props.patient)
+</script>
 
 <template>
   <div class="border bg-white rounded-lg p-3">
     <table>
       <tbody>
         <tr>
-          <td colspan="2" class="text-center font-bold text-lg pb-4 border-0 text-sm-green">
+          <td
+            colspan="2"
+            class="text-center font-bold text-lg pb-4 border-0 text-sm-green"
+          >
             زانیاری کەسی
           </td>
         </tr>
         <tr>
           <td class="font-bold">ناوی سیانی</td>
-          <td>بڕوا عەتا سیدحەمەلاو</td>
+          <td>{{ patient.full_name }}</td>
         </tr>
         <tr>
           <td class="font-bold">تەمەن</td>
-          <td>26 ساڵ</td>
+          <td>
+            <div class="flex">
+              <span>{{ patient.calculated_age.y }} ساڵ</span>
+              <span class="mx-1">, </span>
+              <span>{{ patient.calculated_age.m }} مانگ</span>
+              <span class="mx-1">, </span>
+              <span>{{ patient.calculated_age.d }} ڕۆژ</span>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="font-bold">جۆری کۆد</td>

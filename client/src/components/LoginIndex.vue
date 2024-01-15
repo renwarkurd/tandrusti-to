@@ -11,7 +11,7 @@ const form = ref({
 
 function login() {
   if (form.value.code) {
-    router.push('/patient-view', { params: { code: form.value.code } })
+    router.push({ name: 'patient-view', params: { code: form.value.code } })
   }
 }
 
@@ -94,6 +94,7 @@ function loginAsUser() {
               <el-button
                 color="#00BFA6"
                 @click="login()"
+                :disabled="!form.code"
               >
                 <span class="text-white">بینینەوەی داتاکانم</span>
               </el-button>

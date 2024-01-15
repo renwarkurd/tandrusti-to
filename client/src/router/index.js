@@ -5,7 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: '',
+      name: 'welcome',
       component: () => import('../components/LoginIndex.vue')
     },
     {
@@ -14,14 +14,14 @@ const router = createRouter({
       component: () => import('../components/userView/UserLogin.vue')
     },
     {
-      path: '/patient-view',
+      path: '/patient-view/:code',
       name: 'patient-view',
       component: () => import('../components/patientView/PatientViewIndex.vue')
     },
     {
       path: '/user-view',
       name: 'user-view',
-      component: () => import('../components/userView/userViewIndex.vue'),
+      component: () => import('../components/userView/UserViewIndex.vue'),
       children: [
         {
           path: 'add-patient',
