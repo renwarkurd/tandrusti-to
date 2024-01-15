@@ -20,7 +20,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-3" v-if="patient.id">
+  <div
+    class="p-3"
+    v-if="patient.id"
+  >
     <el-row :gutter="20">
       <!-- patient bio -->
       <el-col
@@ -42,11 +45,11 @@ onMounted(() => {
         :xl="16"
       >
         <div style="height: 100vh; overflow-y: scroll">
-          <PatientHistory />
+          <PatientHistory :items="patient.histories" />
 
-          <PatientMedication />
+          <PatientMedication :items="patient.medications" />
 
-          <PatientDiagnosis />
+          <PatientDiagnosis :items="patient.diagnosis" />
         </div>
       </el-col>
     </el-row>
