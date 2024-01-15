@@ -1,19 +1,19 @@
 <script setup>
-import axios from 'axios'
 import { ref } from 'vue'
-// import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth.js'
+import { useRouter } from 'vue-router'
 
-// const router = useRouter()
+const router = useRouter()
+const auth = useAuthStore()
 
 const form = ref({
   username: null,
   password: null,
 })
 
-function login() {
-  axios.post('login', form.value).then((res) => {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
-  })
+async function loginUser() {
+  await auth.login(form.value)
+  router.push('user-view')
 }
 </script>
 
@@ -63,7 +63,7 @@ function login() {
             <el-form-item>
               <el-button
                 color="#00BFA6"
-                @click="login()"
+                @click="loginUser()"
               >
                 <span class="text-white">
                   {{ $t('Login') }}

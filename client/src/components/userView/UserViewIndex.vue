@@ -1,10 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router'
-// import { Search,  } from '@element-plus/icons-vue'
+import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const auth = useAuthStore()
 
 const ptSearch = ref(null)
 const options = ref([
@@ -35,7 +36,7 @@ function registerPatient() {
 }
 
 function registerProvider() {
-  router.push({ name: 'add-provider' })
+  router.push({ name: 'provider-list' })
 }
 
 function viewPatient() {
@@ -106,7 +107,7 @@ function viewPatient() {
 
           <el-dropdown trigger="click">
             <el-button text>
-              {{ $t('Admin') }}
+              {{ auth.authUser.name }}
               <el-icon class="ms-2"><ArrowDown /></el-icon>
             </el-button>
             <template #dropdown>
