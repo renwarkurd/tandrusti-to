@@ -5,17 +5,29 @@ import PatientHistory from './patient/PatientHistory.vue'
 
 <template>
   <div class="p-3">
-    <div class="row">
+    <el-row :gutter="20">
       <!-- patient bio -->
-      <div class="col-sm-4">
+      <el-col
+        :xs="24"
+        :sm="12"
+        :md="8"
+        :lg="8"
+        :xl="8"
+      >
         <PatientBio />
-      </div>
+      </el-col>
 
       <!-- other data -->
-      <div class="col">
+      <el-col
+        :xs="24"
+        :sm="12"
+        :md="8"
+        :lg="8"
+        :xl="16"
+      >
         <PatientHistory />
-      </div>
-    </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
