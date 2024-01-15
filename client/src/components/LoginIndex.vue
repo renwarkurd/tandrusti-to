@@ -12,6 +12,10 @@ const form = ref({
 function login() {
   router.push('/patient-view')
 }
+
+function loginAsUser() {
+  router.push('/user-view')
+}
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup>
-import PatientBio from './patient/PatientBio.vue'
-import PatientHistory from './patient/PatientHistory.vue'
-import PatientMedication from './patient/PatientMedication.vue'
-import PatientDiagnosis from './patient/PatientDiagnosis.vue'
+import PatientBio from './sub/PatientBio.vue'
+import PatientHistory from './sub/PatientHistory.vue'
+import PatientMedication from './sub/PatientMedication.vue'
+import PatientDiagnosis from './sub/PatientDiagnosis.vue'
 </script>
 
 <template>

@@ -11,7 +11,19 @@ const router = createRouter({
     {
       path: '/patient-view',
       name: 'patient-view',
-      component: () => import('../components/PatientViewIndex.vue')
+      component: () => import('../components/patientView/PatientViewIndex.vue')
+    },
+    {
+      path: '/user-view',
+      name: 'user-view',
+      component: () => import('../components/userView/userViewIndex.vue'),
+      children: [
+        {
+          path: 'add-patient',
+          name: 'add-patient',
+          component: () => import('@/components/userView/sub/AddPatient.vue')
+        }
+      ]
     }
   ]
 })
