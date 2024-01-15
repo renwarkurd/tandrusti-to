@@ -67,8 +67,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-provider'])->prefix('provider')
     Route::post('patient/radiology', [RestApiPatientController::class, 'storeRadiology']);
     Route::post('patient/general', [RestApiPatientController::class, 'storeGeneral']);
 
-    // City
-    Route::get('city', [CityController::class, 'list']);
+    // Base Data
     Route::get('base-data', [BaseDataController::class, 'index']);
 });
 //============================================== End: Provider-API ==============================================
@@ -141,8 +140,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
     Route::post('patient/radiology', [PatientController::class, 'storeRadiology']);
     Route::post('patient/general', [PatientController::class, 'storeGeneral']);
 
-    // City
-    Route::get('city', [CityController::class, 'list']);
+    // Base Data
     Route::get('base-data', [BaseDataController::class, 'index']);
 });
 //============================================== End: System(Local)-API ==============================================
