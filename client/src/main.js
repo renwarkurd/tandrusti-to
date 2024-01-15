@@ -1,7 +1,7 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import pinia from './plugins/pinia'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'element-plus/dist/index.css'
@@ -13,7 +13,7 @@ import './plugins/axios'
 const app = createApp(App)
 
 app.use(ElementPlus)
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 app.use(i18n)
 

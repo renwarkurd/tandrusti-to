@@ -1,12 +1,23 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import axios from 'axios'
 
-export const useAuthStore = defineStore('auth', () => {
-  const authUser = ref({})
-  const doubleCount = computed(() => authUser.value * 2)
-  function increment() {
-    authUser.value++
-  }
+export const useAuthStore = defineStore('auth', {
+  state: () => {
+    return {
+      authUser: {},
+      token: null,
+    }
+  },
 
-  return { authUser, doubleCount, increment }
+  actions: {
+    async login(form) {
+      await axios.post('login', form).then((res) => {
+        this.authUser = res.data.user
+        this.token = res.data.token
+        axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
+      })
+    },
+  },
+
+  persist: true,
 })
