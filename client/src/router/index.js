@@ -9,6 +9,11 @@ const router = createRouter({
       component: () => import('../components/LoginIndex.vue')
     },
     {
+      path: '/user-login',
+      name: 'user-login',
+      component: () => import('../components/userView/UserLogin.vue')
+    },
+    {
       path: '/patient-view',
       name: 'patient-view',
       component: () => import('../components/patientView/PatientViewIndex.vue')
@@ -27,6 +32,11 @@ const router = createRouter({
           path: 'view-patient',
           name: 'view-patient',
           component: () => import('@/components/userView/sub/ViewPatient.vue')
+        },
+        {
+          path: 'provider-list',
+          name: 'provider-list',
+          component: () => import('@/components/userView/sub/ProviderList.vue')
         },
       ]
     }

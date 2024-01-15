@@ -14,7 +14,7 @@ function login() {
 }
 
 function loginAsUser() {
-  router.push('/user-view')
+  router.push('/user-login')
 }
 </script>
 
