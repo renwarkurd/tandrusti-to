@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +16,7 @@ class PatientFactory extends Factory
      */
     public function definition(): array
     {
-        $marital_status = fake()->randomElement(['married', 'single', 'devorced']);
+        $marital_status = fake()->randomElement(['married', 'single', 'divorced']);
 
         return [
             "user_id" => 1,
@@ -41,7 +40,7 @@ class PatientFactory extends Factory
             "spouse_dob" => $marital_status == 'single' ? null : fake()->date(),
             "spouse_contact" => $marital_status == 'single' ? null : fake()->phoneNumber(),
             "spouse_occupation" => $marital_status == 'single' ? null : fake()->jobTitle(),
-            "input_date" => Carbon::now(),
+            "input_date" => now(),
         ];
     }
 }
