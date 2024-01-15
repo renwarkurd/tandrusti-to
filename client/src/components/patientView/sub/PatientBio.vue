@@ -36,47 +36,47 @@ const patient = computed(() => props.patient)
         </tr>
         <tr>
           <td class="font-bold">جۆری کۆد</td>
-          <td>{{ code }}</td>
+          <td>{{ patient.code_type.name }}</td>
         </tr>
         <tr>
           <td class="font-bold">کۆد</td>
-          <td>2384746183933</td>
+          <td>{{ patient.code }}</td>
         </tr>
         <tr>
           <td class="font-bold">ژ.مۆبایل ١</td>
-          <td>07708948086</td>
+          <td>{{ patient.contact_1 }}</td>
         </tr>
         <tr>
           <td class="font-bold">ژ.مۆبایل ٢</td>
-          <td>07708948086</td>
+          <td>{{ patient.contact_2 }}</td>
         </tr>
         <tr>
           <td class="font-bold">ڕەگەز</td>
-          <td>نێر</td>
+          <td>{{ patient.gender == 1 ? 'مێ' : 'نێر' }}</td>
         </tr>
         <tr>
           <td class="font-bold">بەرواری لەدایک بوون</td>
-          <td>5/2/1997</td>
+          <td>{{ patient.dob }}</td>
         </tr>
         <tr>
           <td class="font-bold">شار</td>
-          <td>سلێمانی</td>
+          <td>{{ patient.city.name }}</td>
         </tr>
         <tr>
           <td class="font-bold">پیشە</td>
-          <td>پڕۆگرامەر</td>
+          <td>{{ patient.occupation }}</td>
         </tr>
         <tr>
           <td class="font-bold">ناونیشان</td>
-          <td>هەواری شار</td>
+          <td>{{ patient.address }}</td>
         </tr>
         <tr>
           <td class="font-bold">باری خێزانی</td>
-          <td>خێزاندار</td>
+          <td>{{ patient.marital_status }}</td>
         </tr>
         <tr>
           <td class="font-bold border-0">گرووپی خوێن</td>
-          <td class="border-0">O+</td>
+          <td class="border-0">{{ patient.blood_group }}</td>
         </tr>
       </tbody>
     </table>

@@ -12,14 +12,14 @@ class ViewPatientController extends Controller
             ->with([
                 'codeType',
                 'city',
-                'histories',
-                'diagnoses',
-                'operations',
-                'medications',
-                'physiotherapies',
-                'laboratoryResults',
-                'radiologyResults',
-                'generalNotes',
+                'histories.user',
+                'diagnosis.user',
+                'operations.user',
+                'medications.user',
+                'physiotherapies.user',
+                'laboratoryResults.user',
+                'radiologyResults.user',
+                'generalNotes.user',
             ])
             ->where('code', $code)
             ->firstOrFail();

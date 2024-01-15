@@ -39,7 +39,7 @@ class Patient extends Model
     // Relations
     public function codeType()
     {
-        return $this->belongsTo(CodeType::class);
+        return $this->belongsTo(CodeType::class, 'code_type');
     }
 
     public function city()
@@ -52,7 +52,7 @@ class Patient extends Model
         return $this->hasMany(History::class);
     }
 
-    public function diagnoses()
+    public function diagnosis()
     {
         return $this->hasMany(Diagnosis::class);
     }

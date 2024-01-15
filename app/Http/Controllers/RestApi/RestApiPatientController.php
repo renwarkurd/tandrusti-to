@@ -19,7 +19,7 @@ class RestApiPatientController extends Controller
 {
     public function storePatient(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'code' => ['required', 'string'],
             'code_type' => ['required', 'integer'],
             'first_name' => ['required', 'string'],
@@ -42,7 +42,7 @@ class RestApiPatientController extends Controller
             'spouse_occupation' => ['nullable', 'string'],
         ]);
 
-        $patient = Patient::create($request->validated());
+        $patient = Patient::create($validated);
 
         return $patient;
     }
