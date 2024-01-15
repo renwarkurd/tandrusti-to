@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\City;
 
 class BaseDataController extends Controller
 {
@@ -13,6 +13,7 @@ class BaseDataController extends Controller
                 '1' => 'کارتی نیشتمانی',
                 '2' => 'پاسپۆرت'
             ],
+            'cities' => City::select('id', 'name')->get(),
         ];
     }
 }
