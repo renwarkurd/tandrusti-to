@@ -17,6 +17,14 @@ export const useAuthStore = defineStore('auth', {
         axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
       })
     },
+
+    async logout() {
+      await axios.post('logout').then(() => {
+        this.authUser = {}
+        this.token = null
+        delete axios.defaults.headers.common['Authorization']
+      })
+    },
   },
 
   persist: true,

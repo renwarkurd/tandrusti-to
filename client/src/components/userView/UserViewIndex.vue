@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -31,6 +32,12 @@ const options = ref([
   },
 ])
 
+onMounted(() => {
+  if (!auth.authUser?.id) {
+    router.push('/user-login')
+  }
+})
+
 function registerPatient() {
   router.push({ name: 'add-patient' })
 }
@@ -41,6 +48,13 @@ function registerProvider() {
 
 function viewPatient() {
   router.push({ name: 'view-patient' })
+}
+
+async function handleUserCommand(command) {
+  if (command == 'logout') {
+    await auth.logout()
+    router.push('/')
+  }
 }
 </script>
 
@@ -105,14 +119,17 @@ function viewPatient() {
             {{ $t('Register Provider') }}
           </el-button>
 
-          <el-dropdown trigger="click">
+          <el-dropdown
+            trigger="click"
+            @command="handleUserCommand"
+          >
             <el-button text>
               {{ auth.authUser.name }}
               <el-icon class="ms-2"><ArrowDown /></el-icon>
             </el-button>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item>{{ $t('Logout') }}</el-dropdown-item>
+                <el-dropdown-item command="logout">{{ $t('Logout') }}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>

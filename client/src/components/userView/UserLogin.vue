@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useAuthStore } from '@/stores/auth.js'
 import { useRouter } from 'vue-router'
 
@@ -9,6 +9,12 @@ const auth = useAuthStore()
 const form = ref({
   username: null,
   password: null,
+})
+
+onMounted(() => {
+  if (auth.authUser && auth.authUser.id) {
+    router.push('/user-view')
+  }
 })
 
 async function loginUser() {
