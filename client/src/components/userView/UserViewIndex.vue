@@ -31,9 +31,12 @@ const options = ref([
 ])
 
 function register() {
-  router.push({name: 'add-patient'})
+  router.push({ name: 'add-patient' })
 }
 
+function viewPatient() {
+  router.push({ name: 'view-patient' })
+}
 </script>
 
 <template>
@@ -57,6 +60,7 @@ function register() {
             :prefix-icon="Search"
             filterable
             :placeholder="$t('Search patient...')"
+            @change="viewPatient()"
           >
             <el-option
               v-for="item in options"
@@ -74,7 +78,10 @@ function register() {
           :lg="4"
           :xl="4"
         >
-          <el-button type="primary" @click="register()">
+          <el-button
+            type="primary"
+            @click="register()"
+          >
             {{ $t('Register') }}
           </el-button>
         </el-col>

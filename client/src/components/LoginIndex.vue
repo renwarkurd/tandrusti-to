@@ -20,6 +20,17 @@ function loginAsUser() {
 
 <template>
   <div class="px-10">
+    <div class="m-3 absolute z-10">
+      <el-button
+        color="#00BFA6"
+        @click="loginAsUser()"
+      >
+        <span class="text-white">
+          {{ $t('Login as user') }}
+        </span>
+      </el-button>
+    </div>
+
     <el-row
       align="middle"
       style="height: 100vh"
@@ -47,17 +58,7 @@ function loginAsUser() {
         :lg="10"
         :xl="8"
       >
-        <div class="m-3 text-end">
-          <el-button
-          color="#00BFA6"
-          @click="loginAsUser()"
-        >
-          <span class="text-white">
-            {{ $t('Login as user') }}
-          </span>
-        </el-button>
-        </div>
-        <div class="border bg-white rounded-lg shadow-sm  py-5 px-6">
+        <div class="border bg-white rounded-lg shadow-sm py-5 px-6">
           <div class="mb-7 text-xl text-center">
             بەخێربێیت بۆ پۆڕتاڵی
             <span class="text-sm-green">تەندرووستی تۆ</span>
