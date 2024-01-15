@@ -120,6 +120,17 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
     Route::get('provider', [ProviderController::class, 'index']);
     Route::post('provider', [ProviderController::class, 'store']);
     Route::put('provider/{provider}', [ProviderController::class, 'update']);
+
+    // Patient
+    Route::post('patient', [PatientController::class, 'storePatient']);
+    Route::post('patient/history', [PatientController::class, 'storeHistory']);
+    Route::post('patient/operation', [PatientController::class, 'storeOperation']);
+    Route::post('patient/diagnosis', [PatientController::class, 'storeDiagnosis']);
+    Route::post('patient/medication', [PatientController::class, 'storeMedication']);
+    Route::post('patient/physiotherapy', [PatientController::class, 'storePhysiotherapy']);
+    Route::post('patient/laboratory', [PatientController::class, 'storeLaboratory']);
+    Route::post('patient/radiology', [PatientController::class, 'storeRadiology']);
+    Route::post('patient/general', [PatientController::class, 'storeGeneral']);
 });
 //============================================== End: System(Local)-API ==============================================
 
