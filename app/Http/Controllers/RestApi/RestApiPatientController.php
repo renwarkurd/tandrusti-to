@@ -49,8 +49,9 @@ class RestApiPatientController extends Controller
 
     public function storeHistory(Request $request)
     {
-        $request->validate([
-            'patient_id' => ['required', 'integer'],
+        $validated = $request->validate([
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'chief_complaint' => ['nullable', 'string'],
             'cheif_complaint_duration' => ['nullable', 'string'],
             'hopi' => ['nullable', 'string'],
@@ -71,7 +72,11 @@ class RestApiPatientController extends Controller
             'note' => ['nullable', 'string'],
         ]);
 
-        $history = History::create($request->validated());
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
+
+        $history = History::create($validated);
 
         return $history;
     }
@@ -79,11 +84,15 @@ class RestApiPatientController extends Controller
     public function storeOperation(Request $request)
     {
         $validated = $request->validate([
-            'patient_id' => ['required', 'integer'],
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'description' => ['required', 'string'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $operation = Operation::create($validated);
@@ -94,11 +103,15 @@ class RestApiPatientController extends Controller
     public function storeDiagnosis(Request $request)
     {
         $validated = $request->validate([
-            'patient_id' => ['required', 'integer'],
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'description' => ['required', 'string'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $diagnosis = Diagnosis::create($validated);
@@ -109,11 +122,15 @@ class RestApiPatientController extends Controller
     public function storeMedication(Request $request)
     {
         $validated = $request->validate([
-            'patient_id' => ['required', 'integer'],
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'description' => ['required', 'string'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $medication = Medication::create($validated);
@@ -124,11 +141,15 @@ class RestApiPatientController extends Controller
     public function storePhysiotherapy(Request $request)
     {
         $validated = $request->validate([
-            'patient_id' => ['required', 'integer'],
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'description' => ['required', 'string'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $physiotherapy = Physiotherapy::create($validated);
@@ -139,12 +160,16 @@ class RestApiPatientController extends Controller
     public function storeLaboratory(Request $request)
     {
         $validated = $request->validate([
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'files' => ['required', 'array'],
             'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf'],
-            'patient_id' => ['required', 'integer'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $array = [];
@@ -173,12 +198,16 @@ class RestApiPatientController extends Controller
     public function storeRadiology(Request $request)
     {
         $validated = $request->validate([
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'files' => ['required', 'array'],
             'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf'],
-            'patient_id' => ['required', 'integer'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $array = [];
@@ -207,11 +236,15 @@ class RestApiPatientController extends Controller
     public function storeGeneral(Request $request)
     {
         $validated = $request->validate([
-            'patient_id' => ['required', 'integer'],
+            'patient_code' => ['required', 'integer'],
+            'patient_code_type' => ['required', 'integer'],
             'description' => ['required', 'string'],
             'input_date' => ['nullable', 'date'],
         ]);
 
+        $patient = Patient::where('code', $validated['patient_code'])->where('code_type', $validated['patient_code_type'])->firstOrFail();
+
+        $validated['patient_id'] = $patient->id;
         $validated['input_date'] = $validated['input_date'] ?? date('Y-m-d');
 
         $generalNote = GeneralNote::create($validated);

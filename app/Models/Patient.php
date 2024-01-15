@@ -2,12 +2,20 @@
 
 namespace App\Models;
 
-use App\Traits\ForUserId;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\History;
+use App\Models\Diagnosis;
+use App\Models\Operation;
+use App\Traits\ForUserId;
+use App\Models\Medication;
+use App\Models\GeneralNote;
+use App\Models\Physiotherapy;
+use App\Models\RadiologyResult;
+use App\Models\LaboratoryResult;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Patient extends Model
 {
@@ -27,6 +35,48 @@ class Patient extends Model
         'dob',
     ];
 
+    // Relations
+    public function histories()
+    {
+        return $this->hasMany(History::class);
+    }
+
+    public function diagnoses()
+    {
+        return $this->hasMany(Diagnosis::class);
+    }
+
+    public function operations()
+    {
+        return $this->hasMany(Operation::class);
+    }
+
+    public function medications()
+    {
+        return $this->hasMany(Medication::class);
+    }
+
+    public function physiotherapies()
+    {
+        return $this->hasMany(Physiotherapy::class);
+    }
+
+    public function laboratoryResults()
+    {
+        return $this->hasMany(LaboratoryResult::class);
+    }
+
+    public function radiologyResults()
+    {
+        return $this->hasMany(RadiologyResult::class);
+    }
+
+    public function generalNotes()
+    {
+        return $this->hasMany(GeneralNote::class);
+    }
+
+    // Attributes
     protected function fullName(): Attribute
     {
         return Attribute::make(

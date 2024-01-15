@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RestApi\RestApiPatientController;
+use App\Http\Controllers\ViewPatientController;
 use Illuminate\Support\Facades\Route;
 
 //============================================== Begin: Client-API ============================================
@@ -113,3 +114,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
 //============================================== End: System(Local)-API ==============================================
+
+//============================================== Begin: Guest-API ============================================
+Route::get('patient/{codeType}/{code}', [ViewPatientController::class, 'show']);
+//============================================== End: Guest-API ==============================================
