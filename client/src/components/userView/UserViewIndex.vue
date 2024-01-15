@@ -98,10 +98,12 @@ async function handleUserCommand(command) {
           :xl="2"
         >
           <el-button
-            type="primary"
+            color="#00BFA6"
             @click="registerPatient()"
           >
-            {{ $t('Register Patient') }}
+            <span class="text-white">
+              {{ $t('Register Patient') }}
+            </span>
           </el-button>
         </el-col>
 
@@ -111,7 +113,7 @@ async function handleUserCommand(command) {
           class="text-end"
         >
           <el-button
-            type="primary"
+            color="#00BFA6"
             plain
             class="mx-4"
             @click="registerProvider()"
