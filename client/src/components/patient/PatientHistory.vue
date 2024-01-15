@@ -22,7 +22,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="font-bold">ناوی سیانی</td>
+                <td class="font-bold">{{ $t('hello') }}</td>
                 <td>بڕوا عەتا سیدحەمەلاو</td>
               </tr>
               <tr>

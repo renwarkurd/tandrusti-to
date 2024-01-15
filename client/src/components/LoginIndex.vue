@@ -45,7 +45,7 @@ function login() {
       >
         <div class="border rounded-lg shadow-sm mx-14 py-5 px-6">
           <div class="mb-7 text-xl text-center">
-            بەخێڕبێیت بۆ پۆڕتاڵی
+            بەخێربێیت بۆ پۆڕتاڵی
             <span class="text-sm-green">تەندرووستی تۆ</span>
             <div>لێرە دەتوانیت زانیارییە تەندرووستییەکانت ببینیتەوە</div>
           </div>
