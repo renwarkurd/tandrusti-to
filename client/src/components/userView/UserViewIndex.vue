@@ -4,6 +4,8 @@ import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { onMounted } from 'vue'
+import { useBaseDataStore } from '@/stores/baseDataStore.js'
+const baseDataStore = useBaseDataStore()
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -36,6 +38,7 @@ onMounted(() => {
   if (!auth.authUser?.id) {
     router.push('/user-login')
   }
+  baseDataStore.get()
 })
 
 function registerPatient() {

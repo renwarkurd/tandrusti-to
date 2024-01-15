@@ -1,5 +1,20 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useBaseDataStore } from '@/stores/baseDataStore.js'
+import axios from 'axios'
+
+const baseDataStore = useBaseDataStore()
+
+const cities = computed(() => baseDataStore.cities)
+const code_types = computed(() => baseDataStore.code_types)
+const bloodGroups = computed(() => baseDataStore.bloodGroups)
+
+const shortcuts = [
+  {
+    text: 'Today',
+    value: new Date(),
+  },
+]
 
 const patientForm = ref({
   code: null,
@@ -32,11 +47,11 @@ const patientForm = ref({
   spouse_occupation: null,
 })
 
-function submit()
-{
-  // axios.
+function submit() {
+  axios.post('patient', patientForm.value).then(() => {
+    console.log('send and stored successfully')
+  })
 }
-
 </script>
 
 <template>
@@ -55,6 +70,25 @@ function submit()
           size="large"
         >
           <el-row :gutter="16">
+            <el-col :span="3">
+              <el-form-item label="ID type">
+                <el-select v-model="patientForm.code_type">
+                  <el-option
+                    v-for="item in code_types"
+                    :key="item.id"
+                    :label="item.name"
+                    :value="item.id"
+                  />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="21">
+              <el-form-item label="ID Code">
+                <el-input v-model="patientForm.code" />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
             <el-col :span="4">
               <el-form-item label="First Name">
                 <el-input v-model="patientForm.first_name" />
@@ -70,35 +104,41 @@ function submit()
                 <el-input v-model="patientForm.last_name" />
               </el-form-item>
             </el-col>
-            <el-col span="auto">
+            <el-col :span="4">
               <el-form-item label="Gender">
                 <el-radio-group
                   v-model="patientForm.gender"
                   class="ml-4"
                 >
+                  <el-radio label="0">Female</el-radio>
                   <el-radio label="1">Male</el-radio>
-                  <el-radio label="2">Female</el-radio>
                 </el-radio-group>
               </el-form-item>
             </el-col>
-            <el-col span="auto">
+            <el-col :span="7">
               <el-form-item label="Date of birth">
                 <el-input-number
                   :controls="false"
                   style="width: 100px; margin-right: 4px; margin-left: 4px"
                   v-model="patientForm.dob_year"
+                  min="1900"
+                  max="2100"
                 />
                 <span class="text-2xl">/</span>
                 <el-input-number
                   :controls="false"
                   style="width: 100px; margin-right: 4px; margin-left: 4px"
                   v-model="patientForm.dob_month"
+                  min="1"
+                  max="12"
                 />
                 <span class="text-2xl">/</span>
                 <el-input-number
                   :controls="false"
                   style="width: 100px; margin-right: 5px; margin-left: 4px"
                   v-model="patientForm.dob_day"
+                  min="1"
+                  max="31"
                 />
               </el-form-item>
             </el-col>
@@ -109,10 +149,10 @@ function submit()
               <el-form-item label="City">
                 <el-select v-model="patientForm.city_id">
                   <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
+                    v-for="item in cities"
+                    :key="item.id"
+                    :label="item.name"
+                    :value="item.id"
                   />
                 </el-select>
               </el-form-item>
@@ -150,15 +190,22 @@ function submit()
             </el-col>
             <el-col :span="12">
               <el-form-item label="Blood Group">
-                <el-input v-model="patientForm.blood_group" />
+                <!-- <el-input v-model="patientForm.blood_group" /> -->
+                <el-select v-model="patientForm.blood_group">
+                  <el-option
+                    v-for="(item, index) in bloodGroups"
+                    :key="index"
+                    :label="item"
+                    :value="item"
+                  />
+                </el-select>
               </el-form-item>
             </el-col>
           </el-row>
           <el-divider />
-          <div><span class="text-">Spouse</span></div>
           <el-row :gutter="16">
             <el-col :span="6">
-              <el-form-item label="Spouse">
+              <el-form-item label="Spouse Full Name">
                 <el-input v-model="patientForm.spouse_fullname" />
               </el-form-item>
             </el-col>
@@ -174,7 +221,11 @@ function submit()
             </el-col>
             <el-col :span="6">
               <el-form-item label="Spouse Date of Birth">
-                <el-input v-model="patientForm.spouse_dob" />
+                <el-date-picker
+                  v-model="patientForm.spouse_dob"
+                  type="date"
+                  :shortcuts="shortcuts"
+                />
               </el-form-item>
             </el-col>
           </el-row>
