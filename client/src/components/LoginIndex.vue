@@ -11,7 +11,7 @@ const form = ref({
 
 function login() {
   if (form.value.code) {
-    router.push('/patient-view', { params: { code: form.value.code } })
+    router.push({ name: 'patient-view', params: { code: form.value.code } })
   }
 }
 
