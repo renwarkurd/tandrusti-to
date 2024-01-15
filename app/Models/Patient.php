@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ForUserId;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Patient extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ForUserId;
 
     // code_type choices
     public const NATIONAL_ID = 'کارتی نیشتیمانی';

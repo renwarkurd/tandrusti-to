@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RestApi\RestApiPatientController;
 use Illuminate\Support\Facades\Route;
 
 //============================================== Begin: Client-API ============================================
@@ -47,7 +49,7 @@ Route::get('client/attachment/{file_name?}', function ($file_name) {
  * Example Routes should be started with: /api/client/.....
  */
 Route::middleware(['auth:sanctum', 'abilities:is-client'])->prefix('client')->group(function () {
-   //
+    Route::post('patient', [RestApiPatientController::class, 'storePatient']);
 });
 //============================================== End: Client-API ==============================================
 
@@ -56,7 +58,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-client'])->prefix('client')->gr
  * Login
  * No middleware (Guest)
  */
-Route::post('login', [AuthenticationController::class, 'login']);
+Route::post('login', [AuthController::class, 'login']);
 
 /**
  * View attachment
@@ -99,7 +101,7 @@ Route::get('attachment/{file_name?}', function ($file_name) {
  * abilities:is-system
  */
 Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
-    Route::get('auth', [UserController::class, 'auth']);
-    Route::post('logout', [AuthenticationController::class, 'logout']);
+    Route::get('auth', [AuthController::class, 'auth']);
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 //============================================== End: System(Local)-API ==============================================
