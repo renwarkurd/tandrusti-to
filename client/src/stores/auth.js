@@ -19,11 +19,10 @@ export const useAuthStore = defineStore('auth', {
     },
 
     async logout() {
-      await axios.post('logout').then(() => {
-        this.authUser = {}
-        this.token = null
-        delete axios.defaults.headers.common['Authorization']
-      })
+      this.authUser = {}
+      this.token = null
+      delete axios.defaults.headers.common['Authorization']
+      await axios.post('logout')
     },
   },
 

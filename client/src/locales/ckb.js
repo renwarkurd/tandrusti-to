@@ -1,6 +1,6 @@
 const ckb = {
   "hello": "سڵاو",
-  "Medical History": "مێژووی تەندرووستی",
+  "Patient History": "مێژووی تەندرووستی",
   "Medication": "دەرمانەکان",
   "Login as user": "چوونەژوورەوە وەک بەکارهێنەر",
   "Diagnosis": "دەستنیشانکردنی نەخۆشی",
@@ -9,6 +9,10 @@ const ckb = {
   "Radiology Results": "ئەنجامەکانی تیشک و سۆنەر",
   "Physiotherapy": "چارەسەری سرەەشتی",
   "General Note": "تێبینی گشتی",
+  "Register Provider": "تۆمارکردنی دابینکەر",
+  "Register Patient": "تۆمارکردنی چارەخواز",
+  "Logout": "چوونە دەرەوە",
+  "Search patient...": "گەڕان لە چارەخواز...",
   "END": "END"
 }
 
