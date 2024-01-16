@@ -10,18 +10,23 @@ const patientDiagnosisForm = ref({
   description: null,
 })
 
-function addDiagnosis() {
+function submitForm() {
   axios
     .post(`patient/diagnosis`, {
       description: patientDiagnosisForm.value.description,
-      patient_id: patientStore.patient.id,
+      patient_id: patient.value.id,
     })
     .then(() => {
-      resetPatientDiagnosisForm()
+      patientStore.show(patient.value.code)
+      ElMessage({
+        message: 'Saved successfully',
+        type: 'success',
+      })
+      clearForm()
     })
 }
 
-function resetPatientDiagnosisForm() {
+function clearForm() {
   patientDiagnosisForm.value = {
     patient_id: patientStore.patient.code,
     description: null,
@@ -29,7 +34,9 @@ function resetPatientDiagnosisForm() {
 }
 </script>
 <template>
-  <el-divider />
+  <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
+    {{ $t('Diagnosis Form') }}
+  </div>
   <el-form
     label-position="top"
     label-width="100px"
@@ -48,17 +55,41 @@ function resetPatientDiagnosisForm() {
       </el-col>
     </el-row>
     <el-row justify="end">
-      <el-col :span="3">
+      <div>
         <el-form-item>
           <el-button
             type="primary"
-            @click="addDiagnosis"
+            @click="submitForm"
+            icon="plus"
           >
-            Add
+            {{ $t('Add') }}
+          </el-button>
+          <el-button
+            icon="Close"
+            @click="clearForm()"
+          >
+            {{ $t('Cancel') }}
           </el-button>
         </el-form-item>
-      </el-col>
+      </div>
     </el-row>
   </el-form>
+  <div class="font-bold text-lg text-sm-green border-b my-4 py-2">
+    {{ $t('Patient Diagnoses') }}
+  </div>
+
+  <el-table
+    :data="patient.diagnosis"
+    style="width: 100%"
+  >
+    <el-table-column
+      prop="description"
+      :label="$t('Note')"
+    />
+    <el-table-column
+      prop="created_at"
+      :label="$t('Created At')"
+    />
+  </el-table>
 </template>
 <style scoped></style>

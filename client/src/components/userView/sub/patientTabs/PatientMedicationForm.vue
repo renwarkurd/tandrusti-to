@@ -4,25 +4,29 @@ import { usePatientStore } from '@/stores/patientStore'
 import axios from 'axios'
 
 const patientStore = usePatientStore()
+const patient = computed(() => patientStore.patient)
 
 const patientMedicationForm = ref({
   description: null,
 })
 
-const patient = computed(() => patientStore.patient)
-
-function addMedication() {
+function submitForm() {
   axios
     .post(`patient/medication`, {
       description: patientMedicationForm.value.description,
-      patient_id: patientStore.patient.id,
+      patient_id: patient.value.id,
     })
     .then(() => {
-      resetPatientMedicationForm()
+      patientStore.show(patient.value.code)
+      ElMessage({
+        message: 'Saved successfully',
+        type: 'success',
+      })
+      clearForm()
     })
 }
 
-function resetPatientMedicationForm() {
+function clearForm() {
   patientMedicationForm.value = {
     patient_id: patientStore.patient.code,
     description: null,
@@ -30,7 +34,9 @@ function resetPatientMedicationForm() {
 }
 </script>
 <template>
-  <el-divider />
+  <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
+    {{ $t('Medications Form') }}
+  </div>
   <el-form
     label-position="top"
     label-width="100px"
@@ -41,9 +47,7 @@ function resetPatientMedicationForm() {
         <el-form-item :label="$t('Medication')">
           <el-input
             v-model="patientMedicationForm.description"
-            maxlength="600"
             :rows="6"
-            show-word-limit
             :placeholder="$t('Medication')"
             type="textarea"
           />
@@ -51,17 +55,41 @@ function resetPatientMedicationForm() {
       </el-col>
     </el-row>
     <el-row justify="end">
-      <el-col :span="3">
+      <div>
         <el-form-item>
           <el-button
             type="primary"
-            @click="addMedication"
+            @click="submitForm"
+            icon="plus"
           >
-            Add
+            {{ $t('Add') }}
+          </el-button>
+          <el-button
+            icon="Close"
+            @click="clearForm()"
+          >
+            {{ $t('Cancel') }}
           </el-button>
         </el-form-item>
-      </el-col>
+      </div>
     </el-row>
   </el-form>
+  <div class="font-bold text-lg text-sm-green border-b my-4 py-2">
+    {{ $t('Patient Medications') }}
+  </div>
+
+  <el-table
+    :data="patient.medications"
+    style="width: 100%"
+  >
+    <el-table-column
+      prop="description"
+      :label="$t('Note')"
+    />
+    <el-table-column
+      prop="created_at"
+      :label="$t('Created At')"
+    />
+  </el-table>
 </template>
 <style scoped></style>

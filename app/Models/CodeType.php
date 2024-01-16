@@ -5,16 +5,17 @@ namespace App\Models;
 use DateTimeInterface;
 use App\Traits\ForUserId;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CodeType extends Model
 {
-    use HasFactory, SoftDeletes, ForUserId;
+    use HasFactory;
 
     protected $fillable = [
         'user_id', 'name'
     ];
+
+    public $timestamps = false;
 
     protected function serializeDate(DateTimeInterface $date): string
     {

@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('code_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->string('name');
-            $table->softDeletes();
-            $table->timestamps();
         });
     }
 
