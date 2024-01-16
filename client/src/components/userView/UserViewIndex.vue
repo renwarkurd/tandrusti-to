@@ -4,33 +4,14 @@ import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { onMounted } from 'vue'
+import axios from 'axios'
 
 const router = useRouter()
 const auth = useAuthStore()
 
 const ptSearch = ref(null)
-const options = ref([
-  {
-    value: 'Option1',
-    label: 'Option1',
-  },
-  {
-    value: 'Option2',
-    label: 'Option2',
-  },
-  {
-    value: 'Option3',
-    label: 'Option3',
-  },
-  {
-    value: 'Option4',
-    label: 'Option4',
-  },
-  {
-    value: 'Option5',
-    label: 'Option5',
-  },
-])
+const loadingSearch = ref(false)
+const patientList = ref([])
 
 onMounted(() => {
   if (!auth.authUser?.id) {
@@ -46,8 +27,16 @@ function registerProvider() {
   router.push({ name: 'provider-list' })
 }
 
-function viewPatient() {
-  router.push({ name: 'view-patient' })
+// function viewPatient() {
+//   router.push({ name: 'view-patient' })
+// }
+
+function searchPatient(keyword) {
+  loadingSearch.value = true
+
+  axios.post('patient/search', { keyword: keyword }).then((res) => {
+    patientList.value = res.data
+  })
 }
 
 async function handleUserCommand(command) {
@@ -76,16 +65,18 @@ async function handleUserCommand(command) {
         >
           <el-select
             v-model="ptSearch"
-            :prefix-icon="Search"
             filterable
+            remote
+            reserve-keyword
             :placeholder="$t('Search patient...')"
-            @change="viewPatient()"
+            :remote-method="searchPatient"
+            :loading="loadingSearch"
           >
             <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
+              v-for="pt in patientList"
+              :key="pt.id"
+              :label="pt.full_name"
+              :value="pt.code"
             />
           </el-select>
         </el-col>

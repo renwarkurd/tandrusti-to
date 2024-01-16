@@ -131,6 +131,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
 
     // Patient
     Route::post('patient', [PatientController::class, 'storePatient']);
+    Route::post('patient/search', [PatientController::class, 'searchPatient']);
     Route::post('patient/history', [PatientController::class, 'storeHistory']);
     Route::post('patient/operation', [PatientController::class, 'storeOperation']);
     Route::post('patient/diagnosis', [PatientController::class, 'storeDiagnosis']);
