@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useBaseDataStore } from '@/stores/baseDataStore.js'
 import axios from 'axios'
 
@@ -8,13 +8,6 @@ const baseDataStore = useBaseDataStore()
 const cities = computed(() => baseDataStore.cities)
 const code_types = computed(() => baseDataStore.code_types)
 const bloodGroups = computed(() => baseDataStore.bloodGroups)
-
-const shortcuts = [
-  {
-    text: 'Today',
-    value: new Date(),
-  },
-]
 
 const patientForm = ref({
   code: null,
@@ -62,17 +55,24 @@ function submit() {
       :md="16"
       :lg="16"
     >
-      <div class="bg-white border rounded p-4">
+      <div class="bg-white border rounded-lg p-4">
+        <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
+          {{ $t('Register Patient') }}
+        </div>
+
         <el-form
           class="demo-form-inline"
           label-width="100px"
           label-position="top"
           size="large"
         >
-          <el-row :gutter="16">
-            <el-col :span="3">
-              <el-form-item label="ID type">
-                <el-select v-model="patientForm.code_type">
+          <el-row :gutter="10">
+            <el-col :span="6">
+              <el-form-item :label="$t('ID Type')">
+                <el-select
+                  v-model="patientForm.code_type"
+                  :placeholder="$t('ID Type')"
+                >
                   <el-option
                     v-for="item in code_types"
                     :key="item.id"
@@ -82,72 +82,90 @@ function submit() {
                 </el-select>
               </el-form-item>
             </el-col>
-            <el-col :span="21">
-              <el-form-item label="ID Code">
-                <el-input v-model="patientForm.code" />
+            <el-col :span="18">
+              <el-form-item :label="$t('ID Code')">
+                <el-input
+                  v-model="patientForm.code"
+                  :placeholder="$t('ID Code')"
+                />
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row :gutter="16">
+          <el-row :gutter="10">
             <el-col :span="4">
-              <el-form-item label="First Name">
-                <el-input v-model="patientForm.first_name" />
+              <el-form-item :label="$t('First Name')">
+                <el-input
+                  v-model="patientForm.first_name"
+                  :placeholder="$t('First Name')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="4">
-              <el-form-item label="Middle Name">
-                <el-input v-model="patientForm.middle_name" />
+              <el-form-item :label="$t('Middle Name')">
+                <el-input
+                  v-model="patientForm.middle_name"
+                  :placeholder="$t('Middle Name')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="4">
-              <el-form-item label="Last Name">
-                <el-input v-model="patientForm.last_name" />
+              <el-form-item :label="$t('Last Name')">
+                <el-input
+                  v-model="patientForm.last_name"
+                  :placeholder="$t('Last Name')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="4">
-              <el-form-item label="Gender">
+              <el-form-item :label="$t('Gender')">
                 <el-radio-group
                   v-model="patientForm.gender"
-                  class="ml-4"
+                  size="default"
                 >
-                  <el-radio label="0">Female</el-radio>
-                  <el-radio label="1">Male</el-radio>
+                  <el-radio-button label="0">{{ $t('Female') }}</el-radio-button>
+                  <el-radio-button label="1">{{ $t('Male') }}</el-radio-button>
                 </el-radio-group>
               </el-form-item>
             </el-col>
             <el-col :span="7">
-              <el-form-item label="Date of birth">
+              <el-form-item :label="$t('Date of birth')">
                 <el-input-number
                   :controls="false"
-                  style="width: 100px; margin-right: 4px; margin-left: 4px"
+                  style="width: 70px; margin-right: 4px; margin-left: 4px"
                   v-model="patientForm.dob_year"
                   min="1900"
                   max="2100"
+                  :placeholder="$t('Year')"
                 />
                 <span class="text-2xl">/</span>
                 <el-input-number
                   :controls="false"
-                  style="width: 100px; margin-right: 4px; margin-left: 4px"
+                  style="width: 60px; margin-right: 4px; margin-left: 4px"
                   v-model="patientForm.dob_month"
                   min="1"
                   max="12"
+                  :placeholder="$t('Month')"
                 />
                 <span class="text-2xl">/</span>
                 <el-input-number
                   :controls="false"
-                  style="width: 100px; margin-right: 5px; margin-left: 4px"
+                  style="width: 60px; margin-right: 5px; margin-left: 4px"
                   v-model="patientForm.dob_day"
                   min="1"
                   max="31"
+                  :placeholder="$t('Day')"
                 />
               </el-form-item>
             </el-col>
           </el-row>
           <el-divider />
-          <el-row :gutter="16">
+          <el-row :gutter="10">
             <el-col :span="8">
-              <el-form-item label="City">
-                <el-select v-model="patientForm.city_id">
+              <el-form-item :label="$t('City')">
+                <el-select
+                  v-model="patientForm.city_id"
+                  :placeholder="$t('City')"
+                >
                   <el-option
                     v-for="item in cities"
                     :key="item.id"
@@ -158,40 +176,57 @@ function submit() {
               </el-form-item>
             </el-col>
             <el-col :span="8">
-              <el-form-item label="Address">
-                <el-input v-model="patientForm.address" />
+              <el-form-item :label="$t('Address')">
+                <el-input
+                  v-model="patientForm.address"
+                  :placeholder="$t('Address')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="8">
-              <el-form-item label="Occupation">
-                <el-input v-model="patientForm.occupation" />
+              <el-form-item :label="$t('Occupation')">
+                <el-input
+                  v-model="patientForm.occupation"
+                  :placeholder="$t('Occupation')"
+                />
               </el-form-item>
             </el-col>
           </el-row>
           <el-divider />
-          <el-row :gutter="16">
+          <el-row :gutter="10">
             <el-col :span="12">
-              <el-form-item label="Contact 1">
-                <el-input v-model="patientForm.contact_1" />
+              <el-form-item :label="$t('Contact 1')">
+                <el-input
+                  v-model="patientForm.contact_1"
+                  :placeholder="$t('Contact 1')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="Contac 2">
-                <el-input v-model="patientForm.contact_2" />
+              <el-form-item :label="$t('Contact 2')">
+                <el-input
+                  v-model="patientForm.contact_2"
+                  :placeholder="$t('Contact 2')"
+                />
               </el-form-item>
             </el-col>
           </el-row>
           <el-divider />
-          <el-row :gutter="16">
+          <el-row :gutter="10">
             <el-col :span="12">
-              <el-form-item label="Martial Status">
-                <el-input v-model="patientForm.marital_status" />
+              <el-form-item :label="$t('Martial Status')">
+                <el-input
+                  v-model="patientForm.marital_status"
+                  :placeholder="$t('Martial Status')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="Blood Group">
-                <!-- <el-input v-model="patientForm.blood_group" /> -->
-                <el-select v-model="patientForm.blood_group">
+              <el-form-item :label="$t('Blood Group')">
+                <el-select
+                  v-model="patientForm.blood_group"
+                  :placeholder="$t('Blood Group')"
+                >
                   <el-option
                     v-for="(item, index) in bloodGroups"
                     :key="index"
@@ -203,28 +238,37 @@ function submit() {
             </el-col>
           </el-row>
           <el-divider />
-          <el-row :gutter="16">
+          <el-row :gutter="10">
             <el-col :span="6">
-              <el-form-item label="Spouse Full Name">
-                <el-input v-model="patientForm.spouse_fullname" />
+              <el-form-item :label="$t('Spouse Full Name')">
+                <el-input
+                  v-model="patientForm.spouse_fullname"
+                  :placeholder="$t('Spouse Full Name')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="6">
-              <el-form-item label="Spouse Contact">
-                <el-input v-model="patientForm.spouse_contact" />
+              <el-form-item :label="$t('Spouse Contact')">
+                <el-input
+                  v-model="patientForm.spouse_contact"
+                  :placeholder="$t('Spouse Contact')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="6">
-              <el-form-item label="Spouse Occupation">
-                <el-input v-model="patientForm.spouse_occupation" />
+              <el-form-item :label="$t('Spouse Occupation')">
+                <el-input
+                  v-model="patientForm.spouse_occupation"
+                  :placeholder="$t('Spouse Occupation')"
+                />
               </el-form-item>
             </el-col>
             <el-col :span="6">
-              <el-form-item label="Spouse Date of Birth">
+              <el-form-item :label="$t('Spouse Date of Birth')">
                 <el-date-picker
                   v-model="patientForm.spouse_dob"
+                  :placeholder="$t('Spouse Date of Birth')"
                   type="date"
-                  :shortcuts="shortcuts"
                 />
               </el-form-item>
             </el-col>
@@ -235,7 +279,7 @@ function submit() {
               type="primary"
               @click="submit"
             >
-              Register
+              {{ $t('Register') }}
             </el-button>
           </el-row>
         </el-form>
