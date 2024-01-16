@@ -11,6 +11,7 @@ const ckb = {
   "General Notes": "تێبینی گشتی",
   "Register Provider": "تۆمارکردنی دابینکەر",
   "Register Patient": "تۆمارکردنی چارەخواز",
+  "Register": "تۆمارکردن",
   "Logout": "چوونە دەرەوە",
   "Search patient...": "گەڕان لە چارەخواز...",
   "Login to your account": "چوونەژوورەوە بۆ هەژمار",
