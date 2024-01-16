@@ -59,6 +59,7 @@ function submit() {
   form.value.patient_id = patient.value.id
 
   axios.post('patient/history', form.value).then(() => {
+    patientStore.show(patient.value.code)
     clearForm()
     ElMessage({
       message: 'Saved successfully',
@@ -69,7 +70,10 @@ function submit() {
 </script>
 
 <template>
-  <div style="max-height: 80vh; overflow-y: scroll; overflow-x: hidden" class="p-4">
+  <div
+    style="max-height: 75vh; overflow-y: scroll; overflow-x: hidden"
+    class="p-4"
+  >
     <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
       {{ $t('Patient History Form') }}
     </div>
@@ -229,13 +233,23 @@ function submit() {
           :xs="24"
           :sm="24"
           :md="12"
-          :lg="6"
+          :lg="2"
+          style="align-self: center"
         >
-          <el-form-item :label="$t('G.P.D G')">
+          {{ $t('G.P.A.D') }}
+        </el-col>
+
+        <el-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="5"
+        >
+          <el-form-item :label="$t('G')">
             <el-input-number
               v-model="form.history_gpd_g"
               style="width: 100%"
-              :placeholder="$t('G.P.D G')"
+              :placeholder="$t('G')"
             />
           </el-form-item>
         </el-col>
@@ -244,13 +258,13 @@ function submit() {
           :xs="24"
           :sm="24"
           :md="12"
-          :lg="6"
+          :lg="5"
         >
-          <el-form-item :label="$t('G.P.D P')">
+          <el-form-item :label="$t('P')">
             <el-input-number
               v-model="form.history_gpd_p"
               style="width: 100%"
-              :placeholder="$t('G.P.D P')"
+              :placeholder="$t('P')"
             />
           </el-form-item>
         </el-col>
@@ -261,11 +275,11 @@ function submit() {
           :md="12"
           :lg="6"
         >
-          <el-form-item :label="$t('G.P.D A')">
+          <el-form-item :label="$t('A')">
             <el-input-number
               v-model="form.history_gpd_a"
               style="width: 100%"
-              :placeholder="$t('G.P.D A')"
+              :placeholder="$t('A')"
             />
           </el-form-item>
         </el-col>
@@ -276,11 +290,11 @@ function submit() {
           :md="12"
           :lg="6"
         >
-          <el-form-item :label="$t('G.P.D D')">
+          <el-form-item :label="$t('D')">
             <el-input-number
               v-model="form.history_gpd_a"
               style="width: 100%"
-              :placeholder="$t('G.P.D D')"
+              :placeholder="$t('D')"
             />
           </el-form-item>
         </el-col>
@@ -294,6 +308,7 @@ function submit() {
             <el-date-picker
               v-model="form.history_edd"
               type="date"
+              value-format="YYYY-MM-DD"
               style="width: 100%"
               :placeholder="$t('History Edd')"
             />
@@ -309,6 +324,7 @@ function submit() {
             <el-date-picker
               v-model="form.history_lmp"
               type="date"
+              value-format="YYYY-MM-DD"
               style="width: 100%"
               :placeholder="$t('History Lmp')"
             />
