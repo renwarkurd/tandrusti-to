@@ -1,15 +1,18 @@
 <script setup>
 import PatientMedication from '@/components/userView/sub/patientTabs/PatientMedication.vue'
+import { usePatientStore } from '@/stores/patientStore'
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const patientStore = usePatientStore()
 
 const patient = ref({})
 
 onMounted(() => {
-  getPatient()
+  // getPatient()
+  patientStore.show(route.params.code)
 })
 
 function getPatient() {
