@@ -92,8 +92,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:42",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -107,8 +107,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:42",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -122,8 +122,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:42",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -137,8 +137,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:42",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -152,8 +152,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:42",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -167,8 +167,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:42",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -182,8 +182,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:43",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -195,8 +195,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:43",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
@@ -210,8 +210,8 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
             "created_at": "2024-01-15 15:04:43",
             "user": {
                 "id": 1,
-                "name": "admin",
-                "username": "admin",
+                "name": "نەخۆشخانەی گشتی",
+                "username": "hospital_user1",
                 "email": null,
                 "created_at": "2024-01-15T15:04:42.000000Z"
             }
