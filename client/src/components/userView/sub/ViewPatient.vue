@@ -30,7 +30,8 @@ function getPatient() {
     >
       <div class="bg-white border rounded-lg p-4">
         <el-tabs tab-position="left">
-          <el-tab-pane :label="$t('Medical History')">User</el-tab-pane>
+          <el-tab-pane :label="$t('Patient History')">
+          </el-tab-pane>
           <el-tab-pane :label="$t('Medication')">Config</el-tab-pane>
           <el-tab-pane :label="$t('Diagnosis')"></el-tab-pane>
           <el-tab-pane :label="$t('Operation')"></el-tab-pane>
