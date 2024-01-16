@@ -9,12 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class City extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'name',
-    ];
+    protected $fillable = ['name'];
+
+    public $timestamps = false;
 
     protected function serializeDate(DateTimeInterface $date): string
     {
