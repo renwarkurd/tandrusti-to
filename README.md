@@ -3,27 +3,10 @@
 -   RESTful API for health care providers to implement in their current software for the purpose of centralzing patient data.
 -   Web Portal to view the patient data via Unique Patient Code.
 -   Web Portal to record patient data for those who don't have system yet.
+- **DEMO:** [www.tandrustyto.smart.krd](https://tandrustyto.smart.krd/)
 
 <br>
 <br>
-
-POST https://tandrustito.smart.krd/api/provider/patient/diagnosis
-
-POST https://tandrustito.smart.krd/api/provider/patient/general
-
-POST https://tandrustito.smart.krd/api/provider/patient/history
-
-POST https://tandrustito.smart.krd/api/provider/patient/laboratory
-
-POST https://tandrustito.smart.krd/api/provider/patient/medication
-
-POST https://tandrustito.smart.krd/api/provider/patient/operation
-
-POST https://tandrustito.smart.krd/api/provider/patient/physiotherapy
-
-POST https://tandrustito.smart.krd/api/provider/patient/radiology
-
-PUT https://tandrustito.smart.krd/api/provider/{provider}
 
 # API Documentation
 
@@ -31,7 +14,7 @@ PUT https://tandrustito.smart.krd/api/provider/{provider}
 
 Get the patient biography, histories, operations, diagnoses, physiotherapies, radiology results, laboratory results, general notes and medications.
 
-**URL** : `https://tandrustito.smart.krd/api/provider/patient/{patientCode}`
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/{patientCode}`
 
 **Method** : `GET`
 
@@ -41,6 +24,9 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
 
 #### Response Sample Example :
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "id": 1,
@@ -233,12 +219,13 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
     ]
 }
 ```
+</details>
 
-## Create New Patient
+## Create Patient Record
 
 Register patient with biography data.
 
-**URL** : `https://tandrustito.smart.krd/api/provider/patient`
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient`
 
 **Method** : `POST`
 
@@ -248,18 +235,21 @@ Register patient with biography data.
 
 **Request Payload Example** :
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
-    "code": 98387412381721, // required,
-    "code_type": 1, // required, code_type_id is provided with another api,
+    "code": 98387412381721, // required
+    "code_type": 1, // required code_type_id is provided with another api
     "first_name": "ئاڵێ", // required
     "middle_name": "ئاوات", // required
     "last_name": "عمر", // required
-    "gender": 0, // required, 0: male, 1: female
-    "dob_year": 1999, // required,
-    "dob_month": 4, // required,
-    "dob_day": 14, // required,
-    "city_id": 15, // not required, city_id is provided with another api,
+    "gender": 0, // required 0: male, 1: female
+    "dob_year": 1999, // required
+    "dob_month": 4, // required
+    "dob_day": 14, // required
+    "city_id": 15, // not required, city_id is provided with another api
     "occupation": "کارمەند", // not required
     "address": "ئازادی", // not required
     "contact_1": "07701112233", // not required
@@ -272,3 +262,405 @@ Register patient with biography data.
     "spouse_occupation": null // not required
 }
 ```
+</details>
+
+## Create Patient History Record
+
+Create history record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/history`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+At least one key of the history data is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "chief_complaint": "",
+    "cheif_complaint_duration": "",
+    "hopi": "",
+    "past_medical_history": "",
+    "surgical_history": "",
+    "family_history": "",
+    "drug_history": "",
+    "allergy_history": "",
+    "social_history": "",
+    "history_gpd_g": "",
+    "history_gpd_p": "",
+    "history_gpd_a": "",
+    "history_gpd_d": "",
+    "history_menstrual": "",
+    "history_edd": "",
+    "history_lmp": "",
+    "history_gestational_age": "",
+    "note": ""
+}
+```
+</details>
+
+## Create Patient Diagnosis Record
+
+Create diagnosis record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/diagnosis`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "description": ""
+}
+```
+</details>
+
+## Create Patient Operation Record
+
+Create operation record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/operation`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "description": ""
+}
+```
+</details>
+
+## Create Patient Physiotherapy Record
+
+Create physiotherapy record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/physiotherapy`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "description": ""
+}
+```
+</details>
+
+## Create Patient General Note Record
+
+Create general note record for specified patient (In case the patient is not within the other categories).
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/general-note`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "description": ""
+}
+```
+</details>
+
+## Create Patient Medication Record
+
+Create medication record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/medication`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "description": ""
+}
+```
+</details>
+
+## Create Patient Laboratory Result Record
+
+Create laboratory result record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/laboratory`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Files is array of multiple files and should be sent via FormData. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
+```json
+{
+    "patient": {
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
+        "first_name": "ئاڵێ", // required
+        "middle_name": "ئاوات", // required
+        "last_name": "عمر", // required
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
+        "occupation": "کارمەند", // not required
+        "address": "ئازادی", // not required
+        "contact_1": "07701112233", // not required
+        "contact_2": "07501112233", // not required
+        "marital_status": "Single", // not required
+        "blood_group": "B+", // not required
+        "spouse_fullname": null, // not required
+        "spouse_dob": null, // not required
+        "spouse_contact": null, // not required
+        "spouse_occupation": null // not required
+    },
+    "files": [] // FormData of multiple files
+}
+```
+</details>
+
+## Create Patient Radiology Result Record
+
+Create radiology result record for specified patient.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/patient/radiology`
+
+**Method** : `POST`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+**Request Payload Example** :
+
+Files is array of multiple files and should be sent via FormData. Patient biography data must be included. This API will create the patient if the patient is not already created.
+
+<details>
+  <summary><i>Click here to show the example</i></summary>
+    
+  ```json
+  {
+      "patient": {
+          "code": 98387412381721, // required
+          "code_type": 1, // required code_type_id is provided with another api
+          "first_name": "ئاڵێ", // required
+          "middle_name": "ئاوات", // required
+          "last_name": "عمر", // required
+          "gender": 0, // required 0: male, 1: female
+          "dob_year": 1999, // required
+          "dob_month": 4, // required
+          "dob_day": 14, // required
+          "city_id": 15, // not required, city_id is provided with another api
+          "occupation": "کارمەند", // not required
+          "address": "ئازادی", // not required
+          "contact_1": "07701112233", // not required
+          "contact_2": "07501112233", // not required
+          "marital_status": "Single", // not required
+          "blood_group": "B+", // not required
+          "spouse_fullname": null, // not required
+          "spouse_dob": null, // not required
+          "spouse_contact": null, // not required
+          "spouse_occupation": null // not required
+      },
+      "files": [] // FormData of multiple files
+  }
+  ```
+</details>
