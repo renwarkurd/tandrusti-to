@@ -65,7 +65,6 @@ function submit() {
           class="demo-form-inline"
           label-width="100px"
           label-position="top"
-          size="large"
         >
           <el-row :gutter="10">
             <el-col :span="6">
@@ -119,10 +118,7 @@ function submit() {
             </el-col>
             <el-col :span="4">
               <el-form-item :label="$t('Gender')">
-                <el-radio-group
-                  v-model="patientForm.gender"
-                  size="default"
-                >
+                <el-radio-group v-model="patientForm.gender">
                   <el-radio-button label="0">{{ $t('Female') }}</el-radio-button>
                   <el-radio-button label="1">{{ $t('Male') }}</el-radio-button>
                 </el-radio-group>
