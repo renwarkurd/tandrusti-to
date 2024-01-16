@@ -57,6 +57,9 @@ const ckb = {
   "Male": "نێر",
   "Female": "مێ",
   "Contact 1": "ژ.مۆبایل ١",
+  "Laboratory Results Form": "فۆڕمی ئەنجامی تاقیگە",
+  "Patient Laboratory Results": "ئەنجامەکانی تاقیگە",
+  "Upload file": "هاوپێچ کردنی فایل",
   "END": "END"
 }
 
