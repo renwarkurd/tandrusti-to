@@ -17,6 +17,28 @@ use Illuminate\Support\Facades\Storage;
 
 class RestApiPatientController extends Controller
 {
+    public function show($code)
+    {
+        $patient = Patient::query()
+            ->with([
+                'codeType',
+                'city',
+                'histories.user',
+                'diagnosis.user',
+                'operations.user',
+                'medications.user',
+                'physiotherapies.user',
+                'laboratoryResults.user',
+                'radiologyResults.user',
+                'generalNotes.user',
+            ])
+            ->where('code', $code)
+            ->where('user_id', auth()->user()->id)
+            ->firstOrFail();
+
+        return $patient;
+    }
+    
     public function storePatient(Request $request)
     {
         $validated = $request->validate([

@@ -20,6 +20,7 @@ use App\Http\Controllers\RestApi\RestApiPatientController;
  */
 Route::middleware(['auth:sanctum', 'abilities:is-provider'])->prefix('provider')->group(function () {
     // Patient
+    Route::get('patient', [RestApiPatientController::class, 'show']);
     Route::post('patient', [RestApiPatientController::class, 'storePatient']);
     Route::post('patient/history', [RestApiPatientController::class, 'storeHistory']);
     Route::post('patient/operation', [RestApiPatientController::class, 'storeOperation']);
@@ -53,9 +54,9 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 
     // Provider (list, create, update)
-    Route::get('provider', [ProviderController::class, 'index']);
-    Route::post('provider', [ProviderController::class, 'store']);
-    Route::put('provider/{provider}', [ProviderController::class, 'update']);
+    Route::get('admin/provider', [ProviderController::class, 'index']);
+    Route::post('admin/provider', [ProviderController::class, 'store']);
+    Route::put('admin/provider/{provider}', [ProviderController::class, 'update']);
 
     // Patient
     Route::get('patient/{code}', [PatientController::class, 'show']);
@@ -77,7 +78,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
 
 //============================================== Begin: Guest-API ============================================
 // Show patient data
-Route::get('patient/{code}', [ViewPatientController::class, 'show']);
+Route::get('view/patient/{code}', [ViewPatientController::class, 'show']);
 
 // Show laboratory & radiology attachments
 Route::get('patient/{patient}/laboratory-attachment/{fileName?}', [ViewPatientController::class, 'showLaboratoryAttachment']);

@@ -18,7 +18,7 @@ const patient = ref({})
 
 onMounted(() => {
   axios
-    .get('patient/' + route.params.code)
+    .get('view/patient/' + route.params.code)
     .then((response) => (patient.value = response.data))
     .catch(() => router.push({ name: 'welcome' }))
 })

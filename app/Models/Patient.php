@@ -39,12 +39,12 @@ class Patient extends Model
     // Relations
     public function codeType()
     {
-        return $this->belongsTo(CodeType::class, 'code_type');
+        return $this->belongsTo(CodeType::class, 'code_type')->select('id', 'name');
     }
 
     public function city()
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class)->select('id', 'name');
     }
 
     public function histories()
