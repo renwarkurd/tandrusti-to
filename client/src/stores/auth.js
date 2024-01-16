@@ -2,9 +2,11 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 export const useAuthStore = defineStore('authStore', () => {
   const router = useRouter()
+  const { locale } = useI18n()
 
   const authUser = ref({})
   const token = ref(null)
@@ -31,11 +33,17 @@ export const useAuthStore = defineStore('authStore', () => {
     })
   }
 
+  function changeLocale(data) {
+    locale.value = data
+  }
+
   return {
     authUser,
     token,
     login,
     logout,
     getAuthUser,
+    locale,
+    changeLocale,
   }
 }, { persist: true })
