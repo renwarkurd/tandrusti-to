@@ -95,7 +95,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -110,7 +110,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -125,7 +125,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -140,7 +140,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -155,7 +155,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -170,7 +170,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -185,7 +185,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         },
         {
@@ -198,7 +198,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ],
@@ -213,7 +213,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
                 "name": "نەخۆشخانەی گشتی",
                 "username": "hospital_user1",
                 "email": null,
-                "created_at": "2024-01-15T15:04:42.000000Z"
+                "created_at": "2024-01-15 15:04:42"
             }
         }
     ]
