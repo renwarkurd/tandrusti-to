@@ -23,6 +23,9 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
 
 #### Response Sample Example :
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "id": 1,
@@ -215,6 +218,7 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
     ]
 }
 ```
+</details>
 
 ## Create Patient Record
 
@@ -230,18 +234,21 @@ Register patient with biography data.
 
 **Request Payload Example** :
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
-    "code": 98387412381721, // required,
-    "code_type": 1, // required, code_type_id is provided with another api,
+    "code": 98387412381721, // required
+    "code_type": 1, // required code_type_id is provided with another api
     "first_name": "ئاڵێ", // required
     "middle_name": "ئاوات", // required
     "last_name": "عمر", // required
-    "gender": 0, // required, 0: male, 1: female
-    "dob_year": 1999, // required,
-    "dob_month": 4, // required,
-    "dob_day": 14, // required,
-    "city_id": 15, // not required, city_id is provided with another api,
+    "gender": 0, // required 0: male, 1: female
+    "dob_year": 1999, // required
+    "dob_month": 4, // required
+    "dob_day": 14, // required
+    "city_id": 15, // not required, city_id is provided with another api
     "occupation": "کارمەند", // not required
     "address": "ئازادی", // not required
     "contact_1": "07701112233", // not required
@@ -254,6 +261,7 @@ Register patient with biography data.
     "spouse_occupation": null // not required
 }
 ```
+</details>
 
 ## Create Patient History Record
 
@@ -271,19 +279,22 @@ Create history record for specified patient.
 
 At least one key of the history data is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -315,6 +326,7 @@ At least one key of the history data is required. Patient biography data must be
     "note": ""
 }
 ```
+</details>
 
 ## Create Patient Diagnosis Record
 
@@ -332,19 +344,22 @@ Create diagnosis record for specified patient.
 
 Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -359,6 +374,7 @@ Description key is required. Patient biography data must be included. This API w
     "description": ""
 }
 ```
+</details>
 
 ## Create Patient Operation Record
 
@@ -376,19 +392,22 @@ Create operation record for specified patient.
 
 Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -403,6 +422,7 @@ Description key is required. Patient biography data must be included. This API w
     "description": ""
 }
 ```
+</details>
 
 ## Create Patient Physiotherapy Record
 
@@ -420,19 +440,22 @@ Create physiotherapy record for specified patient.
 
 Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -447,6 +470,7 @@ Description key is required. Patient biography data must be included. This API w
     "description": ""
 }
 ```
+</details>
 
 ## Create Patient General Note Record
 
@@ -464,19 +488,22 @@ Create general note record for specified patient (In case the patient is not wit
 
 Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -491,6 +518,7 @@ Description key is required. Patient biography data must be included. This API w
     "description": ""
 }
 ```
+</details>
 
 ## Create Patient Medication Record
 
@@ -508,19 +536,22 @@ Create medication record for specified patient.
 
 Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -535,7 +566,7 @@ Description key is required. Patient biography data must be included. This API w
     "description": ""
 }
 ```
-
+</details>
 
 ## Create Patient Laboratory Result Record
 
@@ -553,19 +584,22 @@ Create laboratory result record for specified patient.
 
 Files is array of multiple files and should be sent via FormData. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
+<details>
+  <summary><i>Click here to show the example</i></summary>
+  
 ```json
 {
     "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
+        "code": 98387412381721, // required
+        "code_type": 1, // required code_type_id is provided with another api
         "first_name": "ئاڵێ", // required
         "middle_name": "ئاوات", // required
         "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
+        "gender": 0, // required 0: male, 1: female
+        "dob_year": 1999, // required
+        "dob_month": 4, // required
+        "dob_day": 14, // required
+        "city_id": 15, // not required, city_id is provided with another api
         "occupation": "کارمەند", // not required
         "address": "ئازادی", // not required
         "contact_1": "07701112233", // not required
@@ -577,9 +611,10 @@ Files is array of multiple files and should be sent via FormData. Patient biogra
         "spouse_contact": null, // not required
         "spouse_occupation": null // not required
     },
-    "files": [] // FormData of multiple files,
+    "files": [] // FormData of multiple files
 }
 ```
+</details>
 
 ## Create Patient Radiology Result Record
 
@@ -597,30 +632,34 @@ Create radiology result record for specified patient.
 
 Files is array of multiple files and should be sent via FormData. Patient biography data must be included. This API will create the patient if the patient is not already created.
 
-```json
-{
-    "patient": {
-        "code": 98387412381721, // required,
-        "code_type": 1, // required, code_type_id is provided with another api,
-        "first_name": "ئاڵێ", // required
-        "middle_name": "ئاوات", // required
-        "last_name": "عمر", // required
-        "gender": 0, // required, 0: male, 1: female
-        "dob_year": 1999, // required,
-        "dob_month": 4, // required,
-        "dob_day": 14, // required,
-        "city_id": 15, // not required, city_id is provided with another api,
-        "occupation": "کارمەند", // not required
-        "address": "ئازادی", // not required
-        "contact_1": "07701112233", // not required
-        "contact_2": "07501112233", // not required
-        "marital_status": "Single", // not required
-        "blood_group": "B+", // not required
-        "spouse_fullname": null, // not required
-        "spouse_dob": null, // not required
-        "spouse_contact": null, // not required
-        "spouse_occupation": null // not required
-    },
-    "files": [] // FormData of multiple files,
-}
-```
+<details>
+  <summary><i>Click here to show the example</i></summary>
+    
+  ```json
+  {
+      "patient": {
+          "code": 98387412381721, // required
+          "code_type": 1, // required code_type_id is provided with another api
+          "first_name": "ئاڵێ", // required
+          "middle_name": "ئاوات", // required
+          "last_name": "عمر", // required
+          "gender": 0, // required 0: male, 1: female
+          "dob_year": 1999, // required
+          "dob_month": 4, // required
+          "dob_day": 14, // required
+          "city_id": 15, // not required, city_id is provided with another api
+          "occupation": "کارمەند", // not required
+          "address": "ئازادی", // not required
+          "contact_1": "07701112233", // not required
+          "contact_2": "07501112233", // not required
+          "marital_status": "Single", // not required
+          "blood_group": "B+", // not required
+          "spouse_fullname": null, // not required
+          "spouse_dob": null, // not required
+          "spouse_contact": null, // not required
+          "spouse_occupation": null // not required
+      },
+      "files": [] // FormData of multiple files
+  }
+  ```
+</details>
