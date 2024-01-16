@@ -354,10 +354,10 @@ function submit() {
             @click="submit()"
           >
             <template #icon>
-              <el-icon color="white"><Check /></el-icon>
+              <el-icon color="white"><Plus /></el-icon>
             </template>
             <span class="text-white">
-              {{ $t('Save') }}
+              {{ $t('Add') }}
             </span>
           </el-button>
 
