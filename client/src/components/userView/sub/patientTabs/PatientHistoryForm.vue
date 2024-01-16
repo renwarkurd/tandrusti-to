@@ -57,6 +57,7 @@ function clearForm() {
 
 function submit() {
   form.value.patient_id = patient.value.id
+
   axios.post('patient/history', form.value).then(() => {
     clearForm()
     ElMessage({
@@ -69,7 +70,7 @@ function submit() {
 
 <template>
   <div style="max-height: 80vh; overflow-y: scroll">
-    <div class="font-medium text-base border-b mb-4 py-2">
+    <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
       {{ $t('Patient History Form') }}
     </div>
 
@@ -370,7 +371,7 @@ function submit() {
       </el-row>
     </el-form>
 
-    <div class="font-medium text-base border-b my-4 py-2">
+    <div class="font-bold text-lg text-sm-green border-b my-4 py-2">
       {{ $t('Patient Histories') }}
     </div>
 
@@ -386,38 +387,47 @@ function submit() {
       <el-table-column
         prop="cheif_complaint_duration"
         :label="$t('Chief Complaint Duration')"
+        width="200"
       />
       <el-table-column
         prop="hopi"
         :label="$t('H.O.P.I')"
+        width="200"
       />
       <el-table-column
         prop="past_medical_history"
         :label="$t('Medical History')"
+        width="200"
       />
       <el-table-column
         prop="surgical_history"
         :label="$t('Surgical History')"
+        width="200"
       />
       <el-table-column
         prop="family_history"
         :label="$t('Family History')"
+        width="200"
       />
       <el-table-column
         prop="drug_history"
         :label="$t('Drug History')"
+        width="200"
       />
       <el-table-column
         prop="allergy_history"
         :label="$t('Allergy History')"
+        width="200"
       />
       <el-table-column
         prop="social_history"
         :label="$t('Social History')"
+        width="200"
       />
       <el-table-column
         prop="history_menstrual"
         :label="$t('Menstrual')"
+        width="200"
       />
       <el-table-column
         prop="history_gpd_g"
@@ -438,41 +448,28 @@ function submit() {
       <el-table-column
         prop="history_edd"
         :label="$t('History Edd')"
+        width="120"
       />
       <el-table-column
         prop="history_lmp"
         :label="$t('History Lmp')"
+        width="120"
       />
       <el-table-column
         prop="history_gestational_age"
         :label="$t('History Gestational Age')"
+        width="120"
       />
       <el-table-column
         prop="note"
         :label="$t('Note')"
+        width="200"
       />
       <el-table-column
         prop="created_at"
         :label="$t('Created At')"
-      />
-
-      <!-- Actions column -->
-      <el-table-column
-        fixed="right"
-        :label="$t('Actions')"
         width="120"
-      >
-        <template #default="scope">
-          <el-button
-            link
-            type="primary"
-            size="small"
-            @click="editRow(scope.row)"
-          >
-            {{ $t('Edit') }}
-          </el-button>
-        </template>
-      </el-table-column>
+      />
     </el-table>
   </div>
 </template>
