@@ -48,7 +48,15 @@ const ckb = {
   "Register New Provider": "زیادکردنی دابینکەر",
   "Update Provider": "نوێکردنەوەی دابینکەر",
   "Edit": "دەستکاریکردن",
-  "Patient Histories": "لیستی مێژووی تەندرووستی",
+  "Patient Histories": "تۆماری مێژووی تەندرووستی",
+  "Full Name": "ناوی سیانی",
+  "Code Type": "جۆری کۆد",
+  "Code": "کۆد",
+  "Age": "تەمەن",
+  "Gender": "ڕەگەز",
+  "Male": "نێر",
+  "Female": "مێ",
+  "Contact 1": "ژ.مۆبایل ١",
   "END": "END"
 }
 
