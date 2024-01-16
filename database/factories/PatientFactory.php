@@ -25,7 +25,7 @@ class PatientFactory extends Factory
             "middle_name" => fake()->name(),
             "last_name" => fake()->name(),
             "code" => fake()->randomNumber(3),
-            "code_type" => fake()->randomElement([1, 2, 3]),
+            "code_type" => fake()->randomElement([1, 2]),
             "gender" => fake()->randomElement([1, 2]),
             "dob_year" => fake()->year(),
             "dob_month" => fake()->month(),

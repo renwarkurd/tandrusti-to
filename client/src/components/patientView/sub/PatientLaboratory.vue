@@ -1,9 +1,18 @@
 <script setup>
+import { useAuthStore } from '@/stores/auth';
 import { computed } from 'vue'
 
 const props = defineProps(['items'])
+const authStore = useAuthStore()
 
 const items = computed(() => props.items)
+
+function isPdf(fileName) {
+  return fileName.split('.').pop() == 'pdf'
+}
+function storagePath(argument) {
+  return import.meta.env.VITE_API_ENDPOINT + 'api/file-storage/' + argument + '?token=' + authStore.token
+}
 </script>
 
 <template>
@@ -32,6 +41,29 @@ const items = computed(() => props.items)
             <div class="">
               <b># {{ index + 1 }}</b>
               <div class="font-medium">
+                <template v-if="isPdf(item.filename)">
+                  <div
+                    class="file-image-box"
+                  >
+                    <iframe
+                      v-if="storagePath('files/' + file.filename)"
+                      :src="storagePath('files/' + file.filename)"
+                      frameborder="0"
+                      style="overflow: hidden; pointer-events: none; height: 100%"
+                    />
+                  </div>
+                </template>
+                <template v-else>
+                  <div
+                    class="file-image-box"
+                  >
+                    <img
+                      class="mb-2"
+                      :class="{ 'pdf-icon': isPdf(file.filename) }"
+                      :src="getImage(storagePath('files/' + file.filename))"
+                    />
+                  </div>
+                </template>
                 {{ item.filename }}
               </div>
               <div class="flex text-gray-500">
