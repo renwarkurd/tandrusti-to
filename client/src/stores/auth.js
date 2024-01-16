@@ -1,37 +1,41 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-export const useAuthStore = defineStore('authStore', {
-  state: () => {
-    return {
-      authUser: {},
-      token: null,
-    }
-  },
+export const useAuthStore = defineStore('authStore', () => {
+  const router = useRouter()
 
-  actions: {
-    async login(form) {
-      await axios.post('login', form).then((res) => {
-        this.authUser = res.data.user
-        this.token = res.data.token
-        axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
-      })
-    },
+  const authUser = ref({})
+  const token = ref(null)
 
-    async logout() {
-      this.authUser = {}
-      this.token = null
-      await axios.post('logout')
-      delete axios.defaults.headers.common['Authorization']
-      window.location.href = '/'
-    },
+  async function login(form) {
+    await axios.post('login', form).then((res) => {
+      authUser.value = res.data.user
+      token.value = res.data.token
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token.value}`
+    })
+  }
 
-    async getAuthUser() {
-      await axios.get('auth').then((res) => {
-        this.authUser = res.data
-      })
-    },
-  },
+  async function logout() {
+    authUser.value = {}
+    token.value = null
+    await axios.post('logout')
+    delete axios.defaults.headers.common['Authorization']
+    router.push('/')
+  }
 
-  persist: true,
-})
+  async function getAuthUser() {
+    await axios.get('auth').then((res) => {
+      authUser.value = res.data
+    })
+  }
+
+  return {
+    authUser,
+    token,
+    login,
+    logout,
+    getAuthUser,
+  }
+}, { persist: true })

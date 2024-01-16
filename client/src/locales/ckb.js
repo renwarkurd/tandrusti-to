@@ -48,6 +48,7 @@ const ckb = {
   "Register New Provider": "زیادکردنی دابینکەر",
   "Update Provider": "نوێکردنەوەی دابینکەر",
   "Edit": "دەستکاریکردن",
+  "Patient Histories": "لیستی مێژووی تەندرووستی",
   "END": "END"
 }
 
