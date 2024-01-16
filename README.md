@@ -664,3 +664,37 @@ Files is array of multiple files and should be sent via FormData. Patient biogra
   }
   ```
 </details>
+
+## Get Base Data List
+
+Get list of code types and cities.
+
+**URL** : `https://tandrustyto.smart.krd/api/provider/base-data`
+
+**Method** : `GET`
+
+**Header Accept** : `Application\Json`
+
+**Auth** : Bearer token
+
+#### Response Sample :
+
+<details>
+  <summary><i>Click here to show the sample</i></summary>
+  
+```json
+[
+    "code_types": [
+        {
+            "id": 1,
+            "name": "کارتی نیشتمانی",
+        },
+        {
+            "id": 2,
+            "name": "پاسپۆرت",
+        },
+    ],
+    "cities": [] // List of cities (id, name)
+]
+```
+</details>
