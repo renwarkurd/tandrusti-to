@@ -9,11 +9,15 @@ class ProviderController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->is_admin) return response(['message' => 'You are unauthorized.'], 422);
+
         return User::where('is_provider', 1)->where('is_admin', 0)->get();
     }
 
     public function store(Request $request)
     {
+        if (!auth()->user()->is_admin) return response(['message' => 'You are unauthorized.'], 422);
+
         $validated = $request->validate([
             'name' => ['required', 'string'],
             'username' => ['required', 'string'],
@@ -43,6 +47,8 @@ class ProviderController extends Controller
 
     public function update(Request $request, $provider)
     {
+        if (!auth()->user()->is_admin) return response(['message' => 'You are unauthorized.'], 422);
+
         $user = User::findOrFail($provider);
 
         $validated = $request->validate([
