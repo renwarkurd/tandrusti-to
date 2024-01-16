@@ -1,7 +1,7 @@
 <script setup>
+import PatientMedication from '@/components/userView/sub/patientTabs/PatientMedication.vue'
 import axios from 'axios'
-import { ref } from 'vue'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -30,9 +30,8 @@ function getPatient() {
     >
       <div class="bg-white border rounded-lg p-4">
         <el-tabs tab-position="left">
-          <el-tab-pane :label="$t('Patient History')">
-          </el-tab-pane>
-          <el-tab-pane :label="$t('Medication')">Config</el-tab-pane>
+          <el-tab-pane :label="$t('Patient History')"></el-tab-pane>
+          <el-tab-pane :label="$t('Medication')"><patient-medication /></el-tab-pane>
           <el-tab-pane :label="$t('Diagnosis')"></el-tab-pane>
           <el-tab-pane :label="$t('Operation')"></el-tab-pane>
           <el-tab-pane :label="$t('Laboratory Results')"></el-tab-pane>
