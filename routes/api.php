@@ -20,7 +20,7 @@ use App\Http\Controllers\RestApi\RestApiPatientController;
  */
 Route::middleware(['auth:sanctum', 'abilities:is-provider'])->prefix('provider')->group(function () {
     // Patient
-    Route::get('patient', [RestApiPatientController::class, 'show']);
+    Route::get('patient/{code}', [RestApiPatientController::class, 'show']);
     Route::post('patient', [RestApiPatientController::class, 'storePatient']);
     Route::post('patient/history', [RestApiPatientController::class, 'storeHistory']);
     Route::post('patient/operation', [RestApiPatientController::class, 'storeOperation']);

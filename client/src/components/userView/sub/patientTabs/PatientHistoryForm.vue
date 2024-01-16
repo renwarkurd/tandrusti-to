@@ -88,10 +88,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Chief Complaint')">
+          <el-form-item label="Chief Complaint">
             <el-input
               v-model="form.chief_complaint"
-              :placeholder="$t('Chief Complaint')"
+              placeholder="Chief Complaint"
             />
           </el-form-item>
         </el-col>
@@ -101,10 +101,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Chief Complaint Duration')">
+          <el-form-item label="Chief Complaint Duration">
             <el-input
               v-model="form.cheif_complaint_duration"
-              :placeholder="$t('Chief Complaint Duration')"
+              placeholder="Chief Complaint Duration"
             />
           </el-form-item>
         </el-col>
@@ -114,10 +114,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('H.O.P.I')">
+          <el-form-item label="H.O.P.I">
             <el-input
               v-model="form.hopi"
-              :placeholder="$t('H.O.P.I')"
+              placeholder="H.O.P.I"
               :rows="2"
               type="textarea"
             />
@@ -129,10 +129,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Medical History')">
+          <el-form-item label="Medical History">
             <el-input
               v-model="form.past_medical_history"
-              :placeholder="$t('Medical History')"
+              placeholder="Medical History"
               :rows="2"
               type="textarea"
             />
@@ -144,10 +144,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Surgical History')">
+          <el-form-item label="Surgical History">
             <el-input
               v-model="form.surgical_history"
-              :placeholder="$t('Surgical History')"
+              placeholder="Surgical History"
               :rows="2"
               type="textarea"
             />
@@ -159,10 +159,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Family History')">
+          <el-form-item label="Family History">
             <el-input
               v-model="form.family_history"
-              :placeholder="$t('Family History')"
+              placeholder="Family History"
               :rows="2"
               type="textarea"
             />
@@ -174,10 +174,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Drug History')">
+          <el-form-item label="Drug History">
             <el-input
               v-model="form.drug_history"
-              :placeholder="$t('Drug History')"
+              placeholder="Drug History"
               :rows="2"
               type="textarea"
             />
@@ -189,10 +189,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Allergy History')">
+          <el-form-item label="Allergy History">
             <el-input
               v-model="form.allergy_history"
-              :placeholder="$t('Allergy History')"
+              placeholder="Allergy History"
               :rows="2"
               type="textarea"
             />
@@ -204,10 +204,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Social History')">
+          <el-form-item label="Social History">
             <el-input
               v-model="form.social_history"
-              :placeholder="$t('Social History')"
+              placeholder="Social History"
               :rows="2"
               type="textarea"
             />
@@ -219,10 +219,10 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Menstrual')">
+          <el-form-item label="Menstrual">
             <el-input
               v-model="form.history_menstrual"
-              :placeholder="$t('Menstrual')"
+              placeholder="Menstrual"
               :rows="2"
               type="textarea"
             />
@@ -236,7 +236,7 @@ function submit() {
           :lg="2"
           style="align-self: center"
         >
-          {{ $t('G.P.A.D') }}
+          G.P.A.D
         </el-col>
 
         <el-col
@@ -245,11 +245,11 @@ function submit() {
           :md="12"
           :lg="5"
         >
-          <el-form-item :label="$t('G')">
+          <el-form-item label="G">
             <el-input-number
               v-model="form.history_gpd_g"
               style="width: 100%"
-              :placeholder="$t('G')"
+              placeholder="G"
             />
           </el-form-item>
         </el-col>
@@ -260,11 +260,11 @@ function submit() {
           :md="12"
           :lg="5"
         >
-          <el-form-item :label="$t('P')">
+          <el-form-item label="P">
             <el-input-number
               v-model="form.history_gpd_p"
               style="width: 100%"
-              :placeholder="$t('P')"
+              placeholder="P"
             />
           </el-form-item>
         </el-col>
@@ -275,11 +275,11 @@ function submit() {
           :md="12"
           :lg="6"
         >
-          <el-form-item :label="$t('A')">
+          <el-form-item label="A">
             <el-input-number
               v-model="form.history_gpd_a"
               style="width: 100%"
-              :placeholder="$t('A')"
+              placeholder="A"
             />
           </el-form-item>
         </el-col>
@@ -290,11 +290,11 @@ function submit() {
           :md="12"
           :lg="6"
         >
-          <el-form-item :label="$t('D')">
+          <el-form-item label="D">
             <el-input-number
               v-model="form.history_gpd_a"
               style="width: 100%"
-              :placeholder="$t('D')"
+              placeholder="D"
             />
           </el-form-item>
         </el-col>
@@ -304,13 +304,13 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('History Edd')">
+          <el-form-item label="History Edd">
             <el-date-picker
               v-model="form.history_edd"
               type="date"
               value-format="YYYY-MM-DD"
               style="width: 100%"
-              :placeholder="$t('History Edd')"
+              placeholder="History Edd"
             />
           </el-form-item>
         </el-col>
@@ -320,13 +320,13 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('History Lmp')">
+          <el-form-item label="History Lmp">
             <el-date-picker
               v-model="form.history_lmp"
               type="date"
               value-format="YYYY-MM-DD"
               style="width: 100%"
-              :placeholder="$t('History Lmp')"
+              placeholder="History Lmp"
             />
           </el-form-item>
         </el-col>
@@ -336,12 +336,12 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('History Gestational Age')">
+          <el-form-item label="History Gestational Age">
             <el-input
               v-model="form.history_gestational_age"
               rows="2"
               type="textarea"
-              :placeholder="$t('History Gestational Age')"
+              placeholder="History Gestational Age"
             />
           </el-form-item>
         </el-col>
@@ -351,12 +351,12 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('Note')">
+          <el-form-item label="Note">
             <el-input
               v-model="form.note"
               rows="2"
               type="textarea"
-              :placeholder="$t('Note')"
+              placeholder="Note"
             />
           </el-form-item>
         </el-col>
@@ -393,93 +393,93 @@ function submit() {
     >
       <el-table-column
         prop="chief_complaint"
-        :label="$t('Chief Complaint')"
+        label="Chief Complaint"
         width="200"
       />
       <el-table-column
         prop="cheif_complaint_duration"
-        :label="$t('Chief Complaint Duration')"
+        label="Chief Complaint Duration"
         width="200"
       />
       <el-table-column
         prop="hopi"
-        :label="$t('H.O.P.I')"
+        label="H.O.P.I"
         width="200"
       />
       <el-table-column
         prop="past_medical_history"
-        :label="$t('Medical History')"
+        label="Medical History"
         width="200"
       />
       <el-table-column
         prop="surgical_history"
-        :label="$t('Surgical History')"
+        label="Surgical History"
         width="200"
       />
       <el-table-column
         prop="family_history"
-        :label="$t('Family History')"
+        label="Family History"
         width="200"
       />
       <el-table-column
         prop="drug_history"
-        :label="$t('Drug History')"
+        label="Drug History"
         width="200"
       />
       <el-table-column
         prop="allergy_history"
-        :label="$t('Allergy History')"
+        label="Allergy History"
         width="200"
       />
       <el-table-column
         prop="social_history"
-        :label="$t('Social History')"
+        label="Social History"
         width="200"
       />
       <el-table-column
         prop="history_menstrual"
-        :label="$t('Menstrual')"
+        label="Menstrual"
         width="200"
       />
       <el-table-column
         prop="history_gpd_g"
-        :label="$t('G.P.D G')"
+        label="G.P.D )"
       />
       <el-table-column
         prop="history_gpd_p"
-        :label="$t('G.P.D P')"
+        label="G.P.D )"
       />
       <el-table-column
         prop="history_gpd_a"
-        :label="$t('G.P.D A')"
+        label="G.P.D )"
       />
       <el-table-column
         prop="history_gpd_d"
-        :label="$t('G.P.D D')"
+        label="G.P.D )"
       />
       <el-table-column
         prop="history_edd"
-        :label="$t('History Edd')"
+        label="History Ed)"
         width="120"
       />
       <el-table-column
         prop="history_lmp"
-        :label="$t('History Lmp')"
+        label="History Lm)"
         width="120"
       />
       <el-table-column
         prop="history_gestational_age"
-        :label="$t('History Gestational Age')"
+        label="History Gestational Age"
         width="120"
       />
       <el-table-column
         prop="note"
-        :label="$t('Note')"
+        label="Note"
         width="200"
       />
       <el-table-column
         prop="created_at"
-        :label="$t('Created At')"
+        label="Created At"
         width="120"
       />
     </el-table>

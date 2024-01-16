@@ -50,7 +50,7 @@ watch(route, () => {
               </div>
 
               <div>
-                <b>{{ $t('Code Type') }}: </b> {{ patient.code_type.name }}
+                <b>{{ $t('Code Type') }}: </b> {{ patient.code_type?.name }}
               </div>
 
               <div>
