@@ -5,8 +5,8 @@
 
 @font-face {
   font-family: 'kurdish_font';
-  src: url('../src/assets/fonts/kurdish-font.woff2') format('woff2'),
-    url('../src/assets/fonts/kurdish-font.woff') format('woff');
+  src: url('@/assets/fonts/kurdish-font.woff2') format('woff2'),
+    url('@/assets/fonts/kurdish-font.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
