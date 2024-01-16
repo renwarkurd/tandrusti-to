@@ -10,18 +10,23 @@ const patientOperationForm = ref({
   description: null,
 })
 
-function addOperation() {
+function submitForm() {
   axios
     .post(`patient/operation`, {
       description: patientOperationForm.value.description,
-      patient_id: patientStore.patient.id,
+      patient_id: patient.value.id,
     })
     .then(() => {
-      resetPatientOperationForm()
+      patientStore.show(patient.value.code)
+      ElMessage({
+        message: 'Saved successfully',
+        type: 'success',
+      })
+      clearForm()
     })
 }
 
-function resetPatientOperationForm() {
+function clearForm() {
   patientOperationForm.value = {
     patient_id: patientStore.patient.code,
     description: null,
@@ -29,7 +34,9 @@ function resetPatientOperationForm() {
 }
 </script>
 <template>
-  <el-divider />
+  <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
+    {{ $t('Operations Form') }}
+  </div>
   <el-form
     label-position="top"
     label-width="100px"
@@ -40,27 +47,49 @@ function resetPatientOperationForm() {
         <el-form-item :label="$t('Operation')">
           <el-input
             v-model="patientOperationForm.description"
-            maxlength="600"
             :rows="6"
             :placeholder="$t('Operation')"
-            show-word-limit
             type="textarea"
           />
         </el-form-item>
       </el-col>
     </el-row>
     <el-row justify="end">
-      <el-col :span="3">
+      <el-col :span="13">
         <el-form-item>
           <el-button
             type="primary"
-            @click="addOperation"
+            @click="submitForm"
+            icon="plus"
           >
-            Add
+            {{ $t('Add') }}
+          </el-button>
+          <el-button
+            icon="Close"
+            @click="clearForm()"
+          >
+            {{ $t('Cancel') }}
           </el-button>
         </el-form-item>
       </el-col>
     </el-row>
   </el-form>
+  <div class="font-bold text-lg text-sm-green border-b my-4 py-2">
+    {{ $t('Patient Operations') }}
+  </div>
+
+  <el-table
+    :data="patient.operations"
+    style="width: 100%"
+  >
+    <el-table-column
+      prop="description"
+      :label="$t('Note')"
+    />
+    <el-table-column
+      prop="created_at"
+      :label="$t('Created At')"
+    />
+  </el-table>
 </template>
 <style scoped></style>
