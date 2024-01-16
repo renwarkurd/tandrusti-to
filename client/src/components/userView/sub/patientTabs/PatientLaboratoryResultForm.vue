@@ -1,15 +1,36 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { usePatientStore } from '@/stores/patientStore'
+import axios from 'axios'
 
 const patientStore = usePatientStore()
+const patient = computed(() => patientStore.patient)
 
-const patientForm = ref({
-  patient_id: patientStore.patient.code,
+const patientLaboratoryResultForm = ref({
   description: null,
 })
+
+function addLaboratoryResult() {
+  axios
+    .post(`patient/laboratory`, {
+      description: patientLaboratoryResultForm.value.description,
+      patient_id: patientStore.patient.id,
+    })
+    .then((result) => {
+      resetPatientLaboratoryResultForm()
+    })
+}
+
+function resetPatientLaboratoryResultForm() {
+  patientLaboratoryResultForm.value = {
+    patient_id: patientStore.patient.code,
+    description: null,
+  }
+}
 </script>
 <template>
+  {{ patient.full_name }}
+  <el-divider />
   <el-form
     label-position="top"
     label-width="100px"
@@ -19,10 +40,10 @@ const patientForm = ref({
       <el-col>
         <el-form-item label="Description">
           <el-input
-            v-model="patientForm.description"
+            v-model="patientLaboratoryResultForm.description"
             maxlength="600"
             :rows="6"
-            placeholder=""
+            placeholder="Laboratory Result..."
             show-word-limit
             type="textarea"
           />

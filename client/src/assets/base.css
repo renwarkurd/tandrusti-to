@@ -49,6 +49,9 @@
     --color-text: var(--vt-c-text-dark-2);
   }
 } */
+:root {
+  --el-color-primary: #00BFA6 !important;
+}
 
 *,
 *::before,

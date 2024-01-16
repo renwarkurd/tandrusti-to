@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore('authStore', {
   state: () => {
     return {
       authUser: {},
@@ -23,6 +23,12 @@ export const useAuthStore = defineStore('auth', {
       this.token = null
       delete axios.defaults.headers.common['Authorization']
       await axios.post('logout')
+    },
+
+    async getAuthUser() {
+      await axios.get('auth').then((res) => {
+        this.authUser = res.data
+      })
     },
   },
 

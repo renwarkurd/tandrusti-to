@@ -10,14 +10,14 @@ import { useBaseDataStore } from '@/stores/baseDataStore.js'
 const baseDataStore = useBaseDataStore()
 
 const router = useRouter()
-const auth = useAuthStore()
+const authStore = useAuthStore()
 
 const ptSearch = ref(null)
 const loadingSearch = ref(false)
 const patientList = ref([])
 
 onMounted(() => {
-  if (!auth.authUser?.id) {
+  if (!authStore.authUser?.id) {
     router.push('/user-login')
   }
   baseDataStore.get()
@@ -49,7 +49,7 @@ function searchPatient(keyword) {
 
 async function handleUserCommand(command) {
   if (command == 'logout') {
-    await auth.logout()
+    await authStore.logout()
     router.push('/')
   }
 }
@@ -65,6 +65,7 @@ async function handleUserCommand(command) {
         style="height: 100%"
       >
         <el-col
+          v-if="!authStore.authUser.is_admin"
           :xs="20"
           :sm="20"
           :md="16"
@@ -91,6 +92,7 @@ async function handleUserCommand(command) {
         </el-col>
 
         <el-col
+          v-if="!authStore.authUser.is_admin"
           :xs="4"
           :sm="4"
           :md="4"
@@ -113,6 +115,7 @@ async function handleUserCommand(command) {
           class="text-end"
         >
           <el-button
+            v-if="authStore.authUser.is_admin"
             color="#00BFA6"
             plain
             class="mx-4"
@@ -126,7 +129,7 @@ async function handleUserCommand(command) {
             @command="handleUserCommand"
           >
             <el-button text>
-              {{ auth.authUser.name }}
+              {{ authStore.authUser.name }}
               <el-icon class="ms-2"><ArrowDown /></el-icon>
             </el-button>
             <template #dropdown>
