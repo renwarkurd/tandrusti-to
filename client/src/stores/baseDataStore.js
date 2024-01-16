@@ -6,6 +6,7 @@ export const useBaseDataStore = defineStore('BaseDataStore', () => {
   const cities = ref([])
   const code_types = ref([])
   const bloodGroups = ref(['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB-', 'AB+'])
+  const maritalOptions = ref(['Single', 'Maried'])
 
   async function get() {
     axios.get('base-data').then((response) => {
@@ -30,6 +31,7 @@ export const useBaseDataStore = defineStore('BaseDataStore', () => {
     cities,
     code_types,
     bloodGroups,
+    maritalOptions,
     store,
     get,
     show,

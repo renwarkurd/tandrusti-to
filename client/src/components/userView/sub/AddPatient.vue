@@ -8,6 +8,7 @@ const baseDataStore = useBaseDataStore()
 const cities = computed(() => baseDataStore.cities)
 const code_types = computed(() => baseDataStore.code_types)
 const bloodGroups = computed(() => baseDataStore.bloodGroups)
+const maritalOptions = computed(() => baseDataStore.maritalOptions)
 
 const patientForm = ref({
   code: null,
@@ -214,11 +215,18 @@ function submit() {
           <el-divider />
           <el-row :gutter="10">
             <el-col :span="12">
-              <el-form-item :label="$t('Martial Status')">
-                <el-input
+              <el-form-item :label="$t('Marital Status')">
+                <el-select
                   v-model="patientForm.marital_status"
-                  :placeholder="$t('Martial Status')"
-                />
+                  :placeholder="$t('Marital Status')"
+                >
+                  <el-option
+                    v-for="(item, index) in maritalOptions"
+                    :key="index"
+                    :label="$t(item)"
+                    :value="item"
+                  />
+                </el-select>
               </el-form-item>
             </el-col>
             <el-col :span="12">
