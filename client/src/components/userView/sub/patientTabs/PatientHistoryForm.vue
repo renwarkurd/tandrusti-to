@@ -295,7 +295,7 @@ function submit() {
               v-model="form.history_edd"
               type="date"
               style="width: 100%"
-              :placeholder="$t('History E.D.D')"
+              :placeholder="$t('History Edd')"
             />
           </el-form-item>
         </el-col>
@@ -350,15 +350,11 @@ function submit() {
           class="text-end"
         >
           <el-button
-            color="#00BFA6"
+            type="primary"
+            icon="Plus"
             @click="submit()"
           >
-            <template #icon>
-              <el-icon color="white"><Plus /></el-icon>
-            </template>
-            <span class="text-white">
-              {{ $t('Add') }}
-            </span>
+            {{ $t('Add') }}
           </el-button>
 
           <el-button

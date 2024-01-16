@@ -40,14 +40,14 @@ function clearForm() {
 }
 
 function getData() {
-  axios.get('provider').then((res) => {
+  axios.get('admin/provider').then((res) => {
     apiData.value = res.data
   })
 }
 
 function submit() {
   if (editMode.value) {
-    axios.put(`provider/${form.value.id}`, form.value).then(() => {
+    axios.put(`admin/provider/${form.value.id}`, form.value).then(() => {
       ElMessage({
         message: 'Saved successfully',
         type: 'success',
@@ -56,7 +56,7 @@ function submit() {
       getData()
     })
   } else {
-    axios.post('provider', form.value).then((res) => {
+    axios.post('admin/provider', form.value).then((res) => {
       newProviderData.value = res.data
       ElMessage({
         message: 'Saved successfully',
@@ -120,7 +120,7 @@ function copyToken(token) {
               />
               <el-table-column
                 prop="name"
-                :label="$t('Name')"
+                :label="$t('Provider Name')"
               />
               <el-table-column
                 prop="email"
@@ -181,10 +181,10 @@ function copyToken(token) {
                   :xs="24"
                   :sm="24"
                 >
-                  <el-form-item :label="$t('Name')">
+                  <el-form-item :label="$t('Provider Name')">
                     <el-input
                       v-model="form.name"
-                      :placeholder="$t('Name')"
+                      :placeholder="$t('Provider Name')"
                     />
                   </el-form-item>
                 </el-col>
@@ -232,12 +232,11 @@ function copyToken(token) {
                   class="text-end"
                 >
                   <el-button
-                    color="#00BFA6"
+                    type="primary"
+                    icon="Check"
                     @click="submit()"
                   >
-                    <span class="text-white">
-                      {{ $t('Save') }}
-                    </span>
+                    {{ $t('Save') }}
                   </el-button>
                 </el-col>
               </el-row>
@@ -256,7 +255,7 @@ function copyToken(token) {
                   </div>
 
                   <div>
-                    <b>{{ $t('Name') }}: </b> {{ newProviderData.name ?? 'Brwa Ata' }}
+                    <b>{{ $t('Provider Name') }}: </b> {{ newProviderData.name ?? 'Brwa Ata' }}
                   </div>
 
                   <div>
