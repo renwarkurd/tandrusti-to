@@ -1,25 +1,21 @@
 <script setup>
 import PatientMedication from '@/components/userView/sub/patientTabs/PatientMedication.vue'
+import PatientHistory from './patientTabs/PatientHistory.vue'
+import { onMounted } from 'vue'
 import { usePatientStore } from '@/stores/patientStore'
-import axios from 'axios'
-import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { watch } from 'vue'
 
-const route = useRoute()
 const patientStore = usePatientStore()
+const route = useRoute()
 
-const patient = ref({})
-
-onMounted(() => {
-  // getPatient()
+onMounted(async () => {
   patientStore.show(route.params.code)
 })
 
-function getPatient() {
-  axios.get(`patient/${route.params.code}`).then((res) => {
-    patient.value = res.data
-  })
-}
+watch(route, () => {
+  patientStore.show(route.params.code)
+})
 </script>
 
 <template>
@@ -33,7 +29,7 @@ function getPatient() {
     >
       <div class="bg-white border rounded-lg p-4">
         <el-tabs tab-position="left">
-          <el-tab-pane :label="$t('Patient History')"></el-tab-pane>
+          <el-tab-pane :label="$t('Patient History')"><patient-history /></el-tab-pane>
           <el-tab-pane :label="$t('Medication')"><patient-medication /></el-tab-pane>
           <el-tab-pane :label="$t('Diagnosis')"></el-tab-pane>
           <el-tab-pane :label="$t('Operation')"></el-tab-pane>

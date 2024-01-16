@@ -6,6 +6,7 @@ import { useRouter } from 'vue-router'
 import { onMounted } from 'vue'
 import axios from 'axios'
 import { useBaseDataStore } from '@/stores/baseDataStore.js'
+
 const baseDataStore = useBaseDataStore()
 
 const router = useRouter()
