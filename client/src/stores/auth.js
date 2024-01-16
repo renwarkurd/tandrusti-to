@@ -21,8 +21,9 @@ export const useAuthStore = defineStore('authStore', {
     async logout() {
       this.authUser = {}
       this.token = null
-      delete axios.defaults.headers.common['Authorization']
       await axios.post('logout')
+      delete axios.defaults.headers.common['Authorization']
+      window.location.href = '/'
     },
 
     async getAuthUser() {

@@ -13,6 +13,10 @@ const ckb = {
   "Register Patient": "تۆمارکردنی چارەخواز",
   "Logout": "چوونە دەرەوە",
   "Search patient...": "گەڕان لە چارەخواز...",
+  "Login to your account": "چوونەژوورەوە بۆ هەژمار",
+  "Username": "ناوی بەکارهێنەر",
+  "Password": "تێپەڕەووشە",
+  "Login": "چوونەژوورەوە",
   "END": "END"
 }
 

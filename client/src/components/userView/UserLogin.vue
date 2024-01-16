@@ -44,7 +44,7 @@ async function loginUser() {
               <el-icon size="40"><UserFilled /></el-icon>
             </el-avatar>
           </div>
-          <div class="text-center text-lg mb-4">چوونەژوورەوە بۆ هەژمار</div>
+          <div class="text-center text-lg mb-4">{{ $t('Login to your account') }}</div>
 
           <el-form
             :model="form"
