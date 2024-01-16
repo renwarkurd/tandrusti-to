@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use App\Traits\ForUserId;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class History extends Model
 {
@@ -14,4 +15,9 @@ class History extends Model
     protected $fillable = [
         'user_id', 'patient_id', 'chief_complaint', 'cheif_complaint_duration', 'hopi', 'past_medical_history', 'surgical_history', 'family_history', 'drug_history', 'allergy_history', 'social_history', 'history_gpd_g', 'history_gpd_p', 'history_gpd_a', 'history_gpd_d', 'history_menstrual', 'history_edd', 'history_lmp', 'history_gestational_age', 'note', 'input_date'
     ];
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 }
