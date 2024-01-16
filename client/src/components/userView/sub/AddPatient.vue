@@ -125,7 +125,7 @@ function submit() {
               </el-form-item>
             </el-col>
             <el-col :span="7">
-              <el-form-item :label="$t('Date of birth')">
+              <el-form-item :label="$t('Date of Birth')">
                 <el-input-number
                   :controls="false"
                   style="width: 70px; margin-right: 4px; margin-left: 4px"
