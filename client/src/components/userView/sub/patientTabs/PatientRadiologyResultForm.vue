@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { usePatientStore } from '@/stores/patientStore'
 import axios from 'axios'
 
@@ -16,7 +16,7 @@ function addRadiologyResult() {
       description: patientRadiologyResultForm.value.description,
       patient_id: patientStore.patient.id,
     })
-    .then((result) => {
+    .then(() => {
       resetPatientRadiologyResultForm()
     })
 }
@@ -29,7 +29,6 @@ function resetPatientRadiologyResultForm() {
 }
 </script>
 <template>
-  {{ patient.full_name }}
   <el-divider />
   <el-form
     label-position="top"
@@ -38,12 +37,12 @@ function resetPatientRadiologyResultForm() {
   >
     <el-row>
       <el-col>
-        <el-form-item label="Description">
+        <el-form-item :label="$t('Radiology Results')">
           <el-input
             v-model="patientRadiologyResultForm.description"
             maxlength="600"
             :rows="6"
-            :placeholder="$t('Radiology Results') + '...'"
+            :placeholder="$t('Radiology Results')"
             show-word-limit
             type="textarea"
           />

@@ -16,7 +16,7 @@ function addPhysiotherapy() {
       description: patientPhysiotherapyForm.value.description,
       patient_id: patientStore.patient.id,
     })
-    .then((result) => {
+    .then(() => {
       resetPatientPhysiotherapyForm()
     })
 }
@@ -29,7 +29,6 @@ function resetPatientPhysiotherapyForm() {
 }
 </script>
 <template>
-  {{ patient.full_name }}
   <el-divider />
   <el-form
     label-position="top"
