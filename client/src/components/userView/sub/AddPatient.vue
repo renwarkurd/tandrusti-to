@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import { useBaseDataStore } from '@/stores/baseDataStore.js'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-import { RouterLink, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const baseDataStore = useBaseDataStore()
 const router = useRouter()

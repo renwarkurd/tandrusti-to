@@ -99,14 +99,14 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Rawah'],
         ]);
 
-        \App\Models\Patient::factory()->count(30)->create();
-        \App\Models\History::factory()->count(16)->create();
-        \App\Models\Diagnosis::factory()->count(16)->create();
-        \App\Models\Operation::factory()->count(16)->create();
-        \App\Models\Medication::factory()->count(16)->create();
-        \App\Models\Physiotherapy::factory()->count(16)->create();
-        \App\Models\LaboratoryResult::factory()->count(16)->create();
-        \App\Models\RadiologyResult::factory()->count(16)->create();
-        \App\Models\GeneralNote::factory()->count(16)->create();
+        // \App\Models\Patient::factory()->count(30)->create();
+        // \App\Models\History::factory()->count(16)->create();
+        // \App\Models\Diagnosis::factory()->count(16)->create();
+        // \App\Models\Operation::factory()->count(16)->create();
+        // \App\Models\Medication::factory()->count(16)->create();
+        // \App\Models\Physiotherapy::factory()->count(16)->create();
+        // \App\Models\LaboratoryResult::factory()->count(16)->create();
+        // \App\Models\RadiologyResult::factory()->count(16)->create();
+        // \App\Models\GeneralNote::factory()->count(16)->create();
     }
 }
