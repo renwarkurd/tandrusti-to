@@ -82,6 +82,8 @@ const ckb = {
   "Spouse Contact": "ژمارەی هاوسەر",
   "Spouse Occupation": "کاری هاوسەر",
   "Spouse Date of Birth": "بەرواری لەدایکبوونی هاوسەر",
+  "Radiology Results Form": "فۆڕمی ئەنجامەکانی تیشک و سۆنەر",
+  "Patient Radiology Results": "ئەنجامەکانی تیشک و سۆنەر",
   "END": "END"
 }
 

@@ -203,9 +203,7 @@ function submit() {
           :id="titleId"
           :class="titleClass"
         >
-          <span class="text-gray-500 text-sm">
-            By <b>{{ dialogData.user.name }}</b> at {{ dialogData.created_at }}
-          </span>
+          <span class="text-gray-500 text-sm"> at {{ dialogData.created_at }} </span>
         </h4>
       </div>
     </template>
