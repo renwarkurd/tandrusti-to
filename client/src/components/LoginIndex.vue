@@ -72,6 +72,7 @@ function loginAsUser() {
           <el-form
             :model="form"
             label-position="top"
+            @submit.prevent="login()"
           >
             <el-form-item label="جۆری کۆدەکەت دەستنیشان بکە">
               <el-radio-group

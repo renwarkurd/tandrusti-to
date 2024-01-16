@@ -1,28 +1,29 @@
-# Tandrusti To
+ # 🧑‍⚕️Tandrusti To 👩‍⚕️
 
--   RESTful API for health care providers to implement in their current software for the purpose of centralzing patient data.
--   Web Portal to view the patient data via Unique Patient Code.
--   Web Portal to record patient data for those who don't have system yet.
--   **DEMO:** [www.tandrustyto.smart.krd](https://tandrustyto.smart.krd/)
+- 💾  RESTful API for health care providers to implement in their current software for the purpose of centralzing patient data.
+- 🌀 Web Portal to view the patient data via Unique Patient Code.
+- 🕳️ Web Portal to record patient data for those who don't have system yet.
+- 🎬 **DEMO:** [www.tandrustyto.smart.krd](https://tandrustyto.smart.krd/) 🎬
 
 <br>
 <br>
 
-# API Documentation
+# 🛰️ API Documentation 🤖
+<!-- 📡 -->
 
-## Show Patient By Code
+## ⛓️ Show Patient By Code
 
 Get the patient biography, histories, operations, diagnoses, physiotherapies, radiology results, laboratory results, general notes and medications.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/{patientCode}`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/{patientCode}`
 
-**Method** : `GET`
+📩 **Method** : `GET`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
-#### Response Sample Example :
+####  Response Sample Example :
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -221,17 +222,17 @@ Get the patient biography, histories, operations, diagnoses, physiotherapies, ra
 ```
 </details>
 
-## Create Patient Record
+## ⛓️ Create Patient Record
 
 Register patient with biography data.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
@@ -264,21 +265,26 @@ Register patient with biography data.
 ```
 </details>
 
-## Create Patient History Record
+## ⛓️ Create Patient History Record
 
 Create history record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/history`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/history`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-At least one key of the history data is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ At least one key of the history data is required.
+
++ Patient biography data must be included.
+
+> [!CAUTION]
+>  ⚠️ This API will create the patient if the patient is not already created..
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -329,21 +335,25 @@ At least one key of the history data is required. Patient biography data must be
 ```
 </details>
 
-## Create Patient Diagnosis Record
+## ⛓️ Create Patient Diagnosis Record
 
 Create diagnosis record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/diagnosis`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/diagnosis`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Description key is required.
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -377,21 +387,25 @@ Description key is required. Patient biography data must be included. This API w
 ```
 </details>
 
-## Create Patient Operation Record
+## ⛓️ Create Patient Operation Record
 
 Create operation record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/operation`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/operation`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Description key is required.
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️ This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -425,21 +439,25 @@ Description key is required. Patient biography data must be included. This API w
 ```
 </details>
 
-## Create Patient Physiotherapy Record
+## ⛓️ Create Patient Physiotherapy Record
 
 Create physiotherapy record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/physiotherapy`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/physiotherapy`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Description key is required.
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️ This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -473,21 +491,25 @@ Description key is required. Patient biography data must be included. This API w
 ```
 </details>
 
-## Create Patient General Note Record
+## ⛓️ Create Patient General Note Record
 
 Create general note record for specified patient (In case the patient is not within the other categories).
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/general-note`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/general-note`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Description key is required.
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️ This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -521,21 +543,25 @@ Description key is required. Patient biography data must be included. This API w
 ```
 </details>
 
-## Create Patient Medication Record
+## ⛓️ Create Patient Medication Record
 
 Create medication record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/medication`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/medication`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Description key is required. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Description key is required.
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️ This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -569,21 +595,25 @@ Description key is required. Patient biography data must be included. This API w
 ```
 </details>
 
-## Create Patient Laboratory Result Record
+## ⛓️ Create Patient Laboratory Result Record
 
 Create laboratory result record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/laboratory`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/laboratory`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Files is array of multiple files and should be sent via FormData. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Files is array of multiple files and should be sent via FormData. 
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️ This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -617,21 +647,25 @@ Files is array of multiple files and should be sent via FormData. Patient biogra
 ```
 </details>
 
-## Create Patient Radiology Result Record
+## ⛓️ Create Patient Radiology Result Record
 
 Create radiology result record for specified patient.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/patient/radiology`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/patient/radiology`
 
-**Method** : `POST`
+📨 **Method** : `POST`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 **Request Payload Example** :
 
-Files is array of multiple files and should be sent via FormData. Patient biography data must be included. This API will create the patient if the patient is not already created.
++ Files is array of multiple files and should be sent via FormData. 
++ Patient biography data must be included.
+
+> [!CAUTION]
+> ⚠️ This API will create the patient if the patient is not already created.
 
 <details>
   <summary><i>Click here to show the example</i></summary>
@@ -665,17 +699,17 @@ Files is array of multiple files and should be sent via FormData. Patient biogra
   ```
 </details>
 
-## Get Base Data List
+## ⛓️ Get Base Data List
 
 Get list of code types and cities.
 
-**URL** : `https://tandrustyto.smart.krd/api/provider/base-data`
+🔗 **URL** : `https://tandrustyto.smart.krd/api/provider/base-data`
 
-**Method** : `GET`
+📩 **Method** : `GET`
 
-**Header Accept** : `Application\Json`
+📦 **Header Accept** : `Application\Json`
 
-**Auth** : Bearer token
+🗝️ **Auth** : Bearer token
 
 #### Response Sample :
 

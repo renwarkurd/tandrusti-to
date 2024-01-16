@@ -20,6 +20,8 @@ axios.interceptors.response.use(
     // if Unauthorized then logout user
     if (error.request.status == 401) {
       // logout
+      localStorage.removeItem('authStore')
+      window.location.replace('/')
     } else {
       if (error.response.data.errors) {
         let errors = '<li>' + Object.values(error.response.data.errors).join('</li><li>') + '</li>'

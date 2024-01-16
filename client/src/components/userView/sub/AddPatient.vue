@@ -2,8 +2,11 @@
 import { ref, computed } from 'vue'
 import { useBaseDataStore } from '@/stores/baseDataStore.js'
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
 
 const baseDataStore = useBaseDataStore()
+const router = useRouter()
 
 const cities = computed(() => baseDataStore.cities)
 const code_types = computed(() => baseDataStore.code_types)
@@ -42,9 +45,15 @@ const patientForm = ref({
 })
 
 function submit() {
-  axios.post('patient', patientForm.value).then(() => {
-    console.log('send and stored successfully')
-  })
+  axios
+    .post('patient', patientForm.value)
+    .then((response) => {
+      ElMessage.success('بەسەرکەوتوویی درووستکرا')
+      router.push({ name: 'view-patient', params: { code: response.data.code } })
+    })
+    .catch(() => {
+      ElMessage.error('نەتوانرا درووست بکرێت.')
+    })
 }
 </script>
 
@@ -125,13 +134,13 @@ function submit() {
               </el-form-item>
             </el-col>
             <el-col :span="7">
-              <el-form-item :label="$t('Date of birth')">
+              <el-form-item :label="$t('Date of Birth')">
                 <el-input-number
                   :controls="false"
                   style="width: 70px; margin-right: 4px; margin-left: 4px"
                   v-model="patientForm.dob_year"
-                  min="1900"
-                  max="2100"
+                  :min="1900"
+                  :max="2100"
                   :placeholder="$t('Year')"
                 />
                 <span class="text-2xl">/</span>
@@ -139,8 +148,8 @@ function submit() {
                   :controls="false"
                   style="width: 60px; margin-right: 4px; margin-left: 4px"
                   v-model="patientForm.dob_month"
-                  min="1"
-                  max="12"
+                  :min="1"
+                  :max="12"
                   :placeholder="$t('Month')"
                 />
                 <span class="text-2xl">/</span>
@@ -148,8 +157,8 @@ function submit() {
                   :controls="false"
                   style="width: 60px; margin-right: 5px; margin-left: 4px"
                   v-model="patientForm.dob_day"
-                  min="1"
-                  max="31"
+                  :min="1"
+                  :max="31"
                   :placeholder="$t('Day')"
                 />
               </el-form-item>

@@ -60,7 +60,7 @@ const patient = computed(() => props.patient)
         </tr>
         <tr>
           <td class="font-bold">شار</td>
-          <td>{{ patient.city.name }}</td>
+          <td>{{ patient?.city?.name }}</td>
         </tr>
         <tr>
           <td class="font-bold">پیشە</td>

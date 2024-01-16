@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'admin',
-        //     'email' => null,
-        //     'username' => 'admin',
-        //     'password' => 'admin',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'admin',
+            'email' => null,
+            'username' => 'admin',
+            'password' => 'admin',
+        ]);
 
         \App\Models\CodeType::insert([
             ['id' => 1, 'name' => 'کارتی نیشتمانی'],
@@ -99,7 +99,6 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Rawah'],
         ]);
 
-        // \App\Models\City::factory()->count(10)->create();
         // \App\Models\Patient::factory()->count(30)->create();
         // \App\Models\History::factory()->count(16)->create();
         // \App\Models\Diagnosis::factory()->count(16)->create();
