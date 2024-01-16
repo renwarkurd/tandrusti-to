@@ -4,11 +4,12 @@ import { useAuthStore } from './stores/auth'
 import { onMounted } from 'vue'
 import axios from 'axios'
 
-const auth = useAuthStore()
+const authStore = useAuthStore()
 
 onMounted(() => {
-  if (auth.authUser && auth.authUser.id && auth.token.length) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${auth.token}`
+  if (authStore.authUser && authStore.authUser.id && authStore.token.length) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${authStore.token}`
+    authStore.getAuthUser()
   }
 })
 </script>
