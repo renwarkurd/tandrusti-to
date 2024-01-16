@@ -58,6 +58,7 @@ Route::middleware(['auth:sanctum', 'abilities:is-system'])->group(function () {
     Route::put('provider/{provider}', [ProviderController::class, 'update']);
 
     // Patient
+    Route::get('patient/{code}', [PatientController::class, 'show']);
     Route::post('patient', [PatientController::class, 'storePatient']);
     Route::post('patient/search', [PatientController::class, 'searchPatient']);
     Route::post('patient/history', [PatientController::class, 'storeHistory']);
