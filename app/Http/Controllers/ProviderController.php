@@ -21,6 +21,10 @@ class ProviderController extends Controller
             'email' => ['nullable', 'email'],
         ]);
 
+        if (User::where('username', $request->username)->first()) {
+            return respose(['message', 'ئەم ناوە پێشتر بەکارهێنراوە، تکایە ناوێکی تر هەڵبژێرە.'], 422);
+        }
+
         $user = User::create([
             'name' => $validated['name'],
             'username' => $validated['username'],

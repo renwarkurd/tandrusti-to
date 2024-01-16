@@ -151,7 +151,7 @@ class PatientController extends Controller
         $validated = $request->validate([
             'patient_id' => ['required', 'integer'],
             'files' => ['required', 'array'],
-            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf'],
+            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf,application/msword'],
         ]);
 
         Patient::findOrFail($validated['patient_id']);
@@ -184,7 +184,7 @@ class PatientController extends Controller
         $validated = $request->validate([
             'patient_id' => ['required', 'integer'],
             'files' => ['required', 'array'],
-            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf'],
+            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf,application/msword'],
         ]);
 
         Patient::findOrFail($validated['patient_id']);

@@ -299,7 +299,7 @@ class RestApiPatientController extends Controller
             'patient.*.spouse_occupation' => ['nullable', 'string'],
 
             'files' => ['required', 'array'],
-            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf'],
+            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf,application/msword'],
             'input_date' => ['nullable', 'date'],
         ]);
 
@@ -360,7 +360,7 @@ class RestApiPatientController extends Controller
             'patient.*.spouse_occupation' => ['nullable', 'string'],
 
             'files' => ['required', 'array'],
-            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf'],
+            'files.*' => ['mimetypes:image/jpeg,image/png,application/pdf,application/msword'],
             'input_date' => ['nullable', 'date'],
         ]);
 
