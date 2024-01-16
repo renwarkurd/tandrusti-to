@@ -26,7 +26,7 @@ class ProviderController extends Controller
         ]);
 
         if (User::where('username', $request->username)->first()) {
-            return respose(['message', 'ئەم ناوە پێشتر بەکارهێنراوە، تکایە ناوێکی تر هەڵبژێرە.'], 422);
+            return response(['message', 'ئەم ناوە پێشتر بەکارهێنراوە، تکایە ناوێکی تر هەڵبژێرە.'], 422);
         }
 
         $user = User::create([
