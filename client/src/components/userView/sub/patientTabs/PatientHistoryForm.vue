@@ -69,7 +69,7 @@ function submit() {
 </script>
 
 <template>
-  <div style="max-height: 80vh; overflow-y: scroll">
+  <div style="max-height: 80vh; overflow-y: scroll; overflow-x: hidden" class="p-4">
     <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
       {{ $t('Patient History Form') }}
     </div>
