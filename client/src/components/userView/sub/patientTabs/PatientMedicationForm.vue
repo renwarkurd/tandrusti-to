@@ -45,7 +45,7 @@ function resetPatientMedicationForm() {
             maxlength="600"
             :rows="6"
             show-word-limit
-            placeholder="Medications..."
+            :placeholder="$t('Medication') + '...'"
             type="textarea"
           />
         </el-form-item>
@@ -56,7 +56,6 @@ function resetPatientMedicationForm() {
         <el-form-item>
           <el-button
             type="primary"
-            color="blue"
             @click="addMedication"
           >
             Add

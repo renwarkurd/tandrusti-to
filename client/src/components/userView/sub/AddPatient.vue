@@ -232,7 +232,7 @@ function submit() {
           <el-divider />
           <el-row justify="end">
             <el-button
-              color="blue"
+              type="primary"
               @click="submit"
             >
               Register

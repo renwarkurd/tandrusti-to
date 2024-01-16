@@ -43,7 +43,7 @@ function resetPatientGeneralNoteForm() {
             v-model="patientGeneralNoteForm.description"
             maxlength="600"
             :rows="6"
-            placeholder="General Note..."
+            :placeholder="$t('General Notes') + '...'"
             show-word-limit
             type="textarea"
           />
@@ -55,7 +55,6 @@ function resetPatientGeneralNoteForm() {
         <el-form-item>
           <el-button
             type="primary"
-            color="blue"
             @click="addGeneralNote"
           >
             Add

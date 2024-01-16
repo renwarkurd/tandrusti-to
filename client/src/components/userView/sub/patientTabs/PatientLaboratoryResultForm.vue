@@ -43,7 +43,7 @@ function resetPatientLaboratoryResultForm() {
             v-model="patientLaboratoryResultForm.description"
             maxlength="600"
             :rows="6"
-            placeholder="Laboratory Result..."
+            :placeholder="$t('Laboratory Results') + '...'"
             show-word-limit
             type="textarea"
           />
@@ -53,12 +53,7 @@ function resetPatientLaboratoryResultForm() {
     <el-row justify="end">
       <el-col :span="3">
         <el-form-item>
-          <el-button
-            type="primary"
-            color="blue"
-          >
-            Add
-          </el-button>
+          <el-button type="primary"> Add </el-button>
         </el-form-item>
       </el-col>
     </el-row>
