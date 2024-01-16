@@ -30,16 +30,20 @@ function registerProvider() {
   router.push({ name: 'provider-list' })
 }
 
-// function viewPatient() {
-//   router.push({ name: 'view-patient' })
-// }
+function viewPatient() {
+  router.push({ name: 'view-patient', params: { code: ptSearch.value } })
+  ptSearch.value = null
+}
 
 function searchPatient(keyword) {
   loadingSearch.value = true
 
-  axios.post('patient/search', { keyword: keyword }).then((res) => {
-    patientList.value = res.data
-  })
+  axios
+    .post('patient/search', { keyword: keyword })
+    .then((res) => {
+      patientList.value = res.data
+    })
+    .finally(() => (loadingSearch.value = false))
 }
 
 async function handleUserCommand(command) {
@@ -74,6 +78,7 @@ async function handleUserCommand(command) {
             :placeholder="$t('Search patient...')"
             :remote-method="searchPatient"
             :loading="loadingSearch"
+            @change="viewPatient()"
           >
             <el-option
               v-for="pt in patientList"

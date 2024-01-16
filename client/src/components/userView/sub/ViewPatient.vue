@@ -1,4 +1,23 @@
-<script setup></script>
+<script setup>
+import axios from 'axios'
+import { ref } from 'vue'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const patient = ref({})
+
+onMounted(() => {
+  getPatient()
+})
+
+function getPatient() {
+  axios.get(`patient/${route.params.code}`).then((res) => {
+    patient.value = res.data
+  })
+}
+</script>
 
 <template>
   <el-row justify="center">

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\Physiotherapy;
 use App\Models\RadiologyResult;
 use App\Models\LaboratoryResult;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PatientController extends Controller
@@ -40,7 +41,7 @@ class PatientController extends Controller
             'spouse_contact' => ['nullable', 'string'],
             'spouse_occupation' => ['nullable', 'string'],
         ]);
-        
+
         $validated['input_date'] = date('Y-m-d');
 
         $patient = Patient::create($validated);
@@ -225,5 +226,24 @@ class PatientController extends Controller
         $generalNote = GeneralNote::create($validated);
 
         return $generalNote;
+    }
+
+
+    public function searchPatient(Request $request)
+    {
+        $keyword = $request->keyword ?? '';
+
+        if (!$keyword) return [];
+
+        $firstWord = explode(' ', $keyword)[0];
+
+        return Patient::query()
+            ->where('code', 'LIKE', $keyword . '%')
+            ->orWhere('contact_1', 'LIKE', $keyword . '%')
+            ->orWhere('contact_2', 'LIKE', $keyword . '%')
+            ->orWhere(DB::raw("CONCAT( first_name, ' ', middle_name, ' ',last_name )"), 'LIKE', '%' . $keyword . '%')
+            ->orderBy(DB::raw("CASE WHEN instr(first_name, '{$firstWord}') = 0 then 1 else 0 end, instr(first_name, '{$firstWord}')"), 'asc')
+            ->limit(100)
+            ->get();
     }
 }

@@ -29,8 +29,11 @@ const router = createRouter({
           component: () => import('@/components/userView/sub/AddPatient.vue')
         },
         {
-          path: 'view-patient',
+          path: 'view-patient/:code',
           name: 'view-patient',
+          params: {
+            code: null
+          },
           component: () => import('@/components/userView/sub/ViewPatient.vue')
         },
         {
