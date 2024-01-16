@@ -40,7 +40,7 @@ watch(route, () => {
           <el-tab-pane :label="$t('Laboratory Results')"><patient-laboratory-result-form /></el-tab-pane>
           <el-tab-pane :label="$t('Radiology Results')"><patient-radiology-result-form /></el-tab-pane>
           <el-tab-pane :label="$t('Physiotherapy')"></el-tab-pane>
-          <el-tab-pane :label="$t('General Note')"><patient-general-note-form /></el-tab-pane>
+          <el-tab-pane :label="$t('General Notes')"><patient-general-note-form /></el-tab-pane>
         </el-tabs>
       </div>
     </el-col>
