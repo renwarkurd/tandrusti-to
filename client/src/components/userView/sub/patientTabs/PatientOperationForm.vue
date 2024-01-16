@@ -43,7 +43,7 @@ function resetPatientOperationForm() {
             v-model="patientOperationForm.description"
             maxlength="600"
             :rows="6"
-            placeholder="Operations..."
+            :placeholder="$t('Operation') + '...'"
             show-word-limit
             type="textarea"
           />
@@ -55,7 +55,6 @@ function resetPatientOperationForm() {
         <el-form-item>
           <el-button
             type="primary"
-            color="blue"
             @click="addOperation"
           >
             Add

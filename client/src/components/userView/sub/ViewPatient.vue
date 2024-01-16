@@ -9,6 +9,7 @@ import PatientMedicationForm from './patientTabs/PatientMedicationForm.vue'
 import PatientLaboratoryResultForm from './patientTabs/PatientLaboratoryResultForm.vue'
 import PatientRadiologyResultForm from './patientTabs/PatientRadiologyResultForm.vue'
 import PatientGeneralNoteForm from './patientTabs/PatientGeneralNoteForm.vue'
+import PatientPhysiotherapyForm from './patientTabs/PatientPhysiotherapyForm.vue'
 
 const patientStore = usePatientStore()
 const route = useRoute()
@@ -39,7 +40,7 @@ watch(route, () => {
           <el-tab-pane :label="$t('Operation')"><patient-operation-form /></el-tab-pane>
           <el-tab-pane :label="$t('Laboratory Results')"><patient-laboratory-result-form /></el-tab-pane>
           <el-tab-pane :label="$t('Radiology Results')"><patient-radiology-result-form /></el-tab-pane>
-          <el-tab-pane :label="$t('Physiotherapy')"></el-tab-pane>
+          <el-tab-pane :label="$t('Physiotherapy')"><patient-physiotherapy-form /></el-tab-pane>
           <el-tab-pane :label="$t('General Notes')"><patient-general-note-form /></el-tab-pane>
         </el-tabs>
       </div>

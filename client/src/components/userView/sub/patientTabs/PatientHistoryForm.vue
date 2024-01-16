@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { usePatientStore } from '@/stores/patientStore'
+import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 const patientStore = usePatientStore()
 const patient = computed(() => patientStore.patient)
@@ -55,12 +57,20 @@ function clearForm() {
 
 function submit() {
   form.value.patient_id = patient.value.id
+
+  axios.post('patient/history', form.value).then(() => {
+    clearForm()
+    ElMessage({
+      message: 'Saved successfully',
+      type: 'success',
+    })
+  })
 }
 </script>
 
 <template>
   <div style="max-height: 80vh; overflow-y: scroll">
-    <div class="font-medium text-base border-b mb-4 py-2">
+    <div class="font-bold text-lg text-sm-green border-b mb-4 py-2">
       {{ $t('Patient History Form') }}
     </div>
 
@@ -295,12 +305,12 @@ function submit() {
           :sm="24"
           :md="12"
         >
-          <el-form-item :label="$t('History L.M.P')">
+          <el-form-item :label="$t('History Lmp')">
             <el-date-picker
               v-model="form.history_lmp"
               type="date"
               style="width: 100%"
-              :placeholder="$t('History L.M.P')"
+              :placeholder="$t('History Lmp')"
             />
           </el-form-item>
         </el-col>
@@ -361,9 +371,106 @@ function submit() {
       </el-row>
     </el-form>
 
-    <div class="font-medium text-base border-b my-4 py-2">
+    <div class="font-bold text-lg text-sm-green border-b my-4 py-2">
       {{ $t('Patient Histories') }}
     </div>
+
+    <el-table
+      :data="patient.histories"
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="chief_complaint"
+        :label="$t('Chief Complaint')"
+        width="200"
+      />
+      <el-table-column
+        prop="cheif_complaint_duration"
+        :label="$t('Chief Complaint Duration')"
+        width="200"
+      />
+      <el-table-column
+        prop="hopi"
+        :label="$t('H.O.P.I')"
+        width="200"
+      />
+      <el-table-column
+        prop="past_medical_history"
+        :label="$t('Medical History')"
+        width="200"
+      />
+      <el-table-column
+        prop="surgical_history"
+        :label="$t('Surgical History')"
+        width="200"
+      />
+      <el-table-column
+        prop="family_history"
+        :label="$t('Family History')"
+        width="200"
+      />
+      <el-table-column
+        prop="drug_history"
+        :label="$t('Drug History')"
+        width="200"
+      />
+      <el-table-column
+        prop="allergy_history"
+        :label="$t('Allergy History')"
+        width="200"
+      />
+      <el-table-column
+        prop="social_history"
+        :label="$t('Social History')"
+        width="200"
+      />
+      <el-table-column
+        prop="history_menstrual"
+        :label="$t('Menstrual')"
+        width="200"
+      />
+      <el-table-column
+        prop="history_gpd_g"
+        :label="$t('G.P.D G')"
+      />
+      <el-table-column
+        prop="history_gpd_p"
+        :label="$t('G.P.D P')"
+      />
+      <el-table-column
+        prop="history_gpd_a"
+        :label="$t('G.P.D A')"
+      />
+      <el-table-column
+        prop="history_gpd_d"
+        :label="$t('G.P.D D')"
+      />
+      <el-table-column
+        prop="history_edd"
+        :label="$t('History Edd')"
+        width="120"
+      />
+      <el-table-column
+        prop="history_lmp"
+        :label="$t('History Lmp')"
+        width="120"
+      />
+      <el-table-column
+        prop="history_gestational_age"
+        :label="$t('History Gestational Age')"
+        width="120"
+      />
+      <el-table-column
+        prop="note"
+        :label="$t('Note')"
+        width="200"
+      />
+      <el-table-column
+        prop="created_at"
+        :label="$t('Created At')"
+        width="120"
+      />
+    </el-table>
   </div>
 </template>
 

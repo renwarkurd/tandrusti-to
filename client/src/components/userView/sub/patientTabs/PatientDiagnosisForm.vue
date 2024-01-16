@@ -38,12 +38,12 @@ function resetPatientDiagnosisForm() {
   >
     <el-row>
       <el-col>
-        <el-form-item label="Description">
+        <el-form-item :label="$t('Description')">
           <el-input
             v-model="patientDiagnosisForm.description"
             maxlength="600"
             :rows="6"
-            placeholder="Diagnosis..."
+            :placeholder="$t('Diagnosis') + '...'"
             show-word-limit
             type="textarea"
           />
@@ -55,7 +55,6 @@ function resetPatientDiagnosisForm() {
         <el-form-item>
           <el-button
             type="primary"
-            color="blue"
             @click="addDiagnosis"
           >
             Add

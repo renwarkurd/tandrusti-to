@@ -7,7 +7,7 @@ export const usePatientStore = defineStore('PatientStore', () => {
   const patient = ref({})
 
   async function show(code) {
-    await axios.get(`patient/${code}`).then((response) => {
+    await axios.get(`view/patient/${code}`).then((response) => {
       patient.value = response.data
     })
   }

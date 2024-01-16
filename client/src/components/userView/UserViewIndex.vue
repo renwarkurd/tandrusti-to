@@ -100,12 +100,10 @@ async function handleUserCommand(command) {
           :xl="2"
         >
           <el-button
-            color="#00BFA6"
+            type="primary"
             @click="registerPatient()"
           >
-            <span class="text-white">
-              {{ $t('Register Patient') }}
-            </span>
+            {{ $t('Register Patient') }}
           </el-button>
         </el-col>
 
@@ -116,7 +114,7 @@ async function handleUserCommand(command) {
         >
           <el-button
             v-if="authStore.authUser.is_admin"
-            color="#00BFA6"
+            type="primary"
             plain
             class="mx-4"
             @click="registerProvider()"
