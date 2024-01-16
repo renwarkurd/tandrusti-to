@@ -683,18 +683,299 @@ Get list of code types and cities.
   <summary><i>Click here to show the sample</i></summary>
   
 ```json
-[
+{
     "code_types": [
         {
             "id": 1,
-            "name": "کارتی نیشتمانی",
+            "name": "کارتی نیشتمانی"
         },
         {
             "id": 2,
-            "name": "پاسپۆرت",
-        },
+            "name": "پاسپۆرت"
+        }
     ],
-    "cities": [] // List of cities (id, name)
-]
+    "cities": [
+        {
+            "id": 1,
+            "name": "Baghdad"
+        },
+        {
+            "id": 2,
+            "name": "Basrah"
+        },
+        {
+            "id": 3,
+            "name": "Al Mawsil al Jadidah"
+        },
+        {
+            "id": 4,
+            "name": "Al Basrah al Qadimah"
+        },
+        {
+            "id": 5,
+            "name": "Mosul"
+        },
+        {
+            "id": 6,
+            "name": "Erbil"
+        },
+        {
+            "id": 7,
+            "name": "Abu Ghurayb"
+        },
+        {
+            "id": 8,
+            "name": "As Sulaymaniyah"
+        },
+        {
+            "id": 9,
+            "name": "Kirkuk"
+        },
+        {
+            "id": 10,
+            "name": "Najaf"
+        },
+        {
+            "id": 11,
+            "name": "Karbala"
+        },
+        {
+            "id": 12,
+            "name": "Nasiriyah"
+        },
+        {
+            "id": 13,
+            "name": "Al Amarah"
+        },
+        {
+            "id": 14,
+            "name": "Ad Diwaniyah"
+        },
+        {
+            "id": 15,
+            "name": "Al Kut"
+        },
+        {
+            "id": 16,
+            "name": "Al Hillah"
+        },
+        {
+            "id": 17,
+            "name": "Dihok"
+        },
+        {
+            "id": 18,
+            "name": "Ramadi"
+        },
+        {
+            "id": 19,
+            "name": "Al Fallujah"
+        },
+        {
+            "id": 20,
+            "name": "Samarra"
+        },
+        {
+            "id": 21,
+            "name": "As Samawah"
+        },
+        {
+            "id": 22,
+            "name": "Baqubah"
+        },
+        {
+            "id": 23,
+            "name": "Sinah"
+        },
+        {
+            "id": 24,
+            "name": "Az Zubayr"
+        },
+        {
+            "id": 25,
+            "name": "Kufa"
+        },
+        {
+            "id": 26,
+            "name": "Umm Qasr"
+        },
+        {
+            "id": 27,
+            "name": "Al Faw"
+        },
+        {
+            "id": 28,
+            "name": "Zaxo"
+        },
+        {
+            "id": 29,
+            "name": "Al Harithah"
+        },
+        {
+            "id": 30,
+            "name": "Ash Shatrah"
+        },
+        {
+            "id": 31,
+            "name": "Al Hayy"
+        },
+        {
+            "id": 32,
+            "name": "Jamjamal"
+        },
+        {
+            "id": 33,
+            "name": "Khalis"
+        },
+        {
+            "id": 34,
+            "name": "Tozkhurmato"
+        },
+        {
+            "id": 35,
+            "name": "Ash Shamiyah"
+        },
+        {
+            "id": 36,
+            "name": "Al Hindiyah"
+        },
+        {
+            "id": 37,
+            "name": "Halabjah"
+        },
+        {
+            "id": 38,
+            "name": "Al Miqdadiyah"
+        },
+        {
+            "id": 39,
+            "name": "Al-Hamdaniya"
+        },
+        {
+            "id": 40,
+            "name": "Ar Rumaythah"
+        },
+        {
+            "id": 41,
+            "name": "Koysinceq"
+        },
+        {
+            "id": 42,
+            "name": "Al Aziziyah"
+        },
+        {
+            "id": 43,
+            "name": "Al Musayyib"
+        },
+        {
+            "id": 44,
+            "name": "Tikrit"
+        },
+        {
+            "id": 45,
+            "name": "As Suwayrah"
+        },
+        {
+            "id": 46,
+            "name": "Balad"
+        },
+        {
+            "id": 47,
+            "name": "Sinjar"
+        },
+        {
+            "id": 48,
+            "name": "Imam Qasim"
+        },
+        {
+            "id": 49,
+            "name": "Bayji"
+        },
+        {
+            "id": 50,
+            "name": "Hit"
+        },
+        {
+            "id": 51,
+            "name": "Hadithah"
+        },
+        {
+            "id": 52,
+            "name": "Nahiyat Ghammas"
+        },
+        {
+            "id": 53,
+            "name": "Nahiyat Saddat al Hindiyah"
+        },
+        {
+            "id": 54,
+            "name": "Kifri"
+        },
+        {
+            "id": 55,
+            "name": "Mandali"
+        },
+        {
+            "id": 56,
+            "name": "Baynjiwayn"
+        },
+        {
+            "id": 57,
+            "name": "Anah"
+        },
+        {
+            "id": 58,
+            "name": "Ad Dujayl"
+        },
+        {
+            "id": 59,
+            "name": "Batufe"
+        },
+        {
+            "id": 60,
+            "name": "Tallkayf"
+        },
+        {
+            "id": 61,
+            "name": "Al Mishkhab"
+        },
+        {
+            "id": 62,
+            "name": "Aqrah"
+        },
+        {
+            "id": 63,
+            "name": "Ruwandiz"
+        },
+        {
+            "id": 64,
+            "name": "Nahiyat ash Shinafiyah"
+        },
+        {
+            "id": 65,
+            "name": "Ar Rutbah"
+        },
+        {
+            "id": 66,
+            "name": "Afak"
+        },
+        {
+            "id": 67,
+            "name": "Nahiyat al Fuhud"
+        },
+        {
+            "id": 68,
+            "name": "Anat al Qadimah"
+        },
+        {
+            "id": 69,
+            "name": "Ali al Gharbi"
+        },
+        {
+            "id": 70,
+            "name": "Rawah"
+        }
+    ]
+}
 ```
 </details>
