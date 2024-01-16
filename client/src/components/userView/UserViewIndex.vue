@@ -160,8 +160,6 @@ async function handleChangeLocale(command) {
             </el-button>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="setLocaleToCkb">کوردی</el-dropdown-item>
-                <el-dropdown-item command="setLocaleToEn">English</el-dropdown-item>
                 <el-dropdown-item command="logout">{{ $t('Logout') }}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
