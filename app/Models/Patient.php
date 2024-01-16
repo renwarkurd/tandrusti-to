@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateTimeInterface;
 use App\Models\History;
 use App\Models\CodeType;
 use App\Models\Diagnosis;
@@ -101,6 +102,7 @@ class Patient extends Model
             get: fn () => "{$this->dob_year}-{$this->dob_month}-{$this->dob_day}",
         );
     }
+    
     protected function calculatedAge(): Attribute
     {
         $dob = "{$this->dob_year}-{$this->dob_month}-{$this->dob_day}";
@@ -114,5 +116,10 @@ class Patient extends Model
                 'd' => $ageCalc_dateNow->d,
             ],
         );
+    }
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }
