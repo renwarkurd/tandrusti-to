@@ -55,7 +55,7 @@ function clearForm() {
       </el-col>
     </el-row>
     <el-row justify="end">
-      <el-col :span="13">
+      <div>
         <el-form-item>
           <el-button
             type="primary"
@@ -71,7 +71,7 @@ function clearForm() {
             {{ $t('Cancel') }}
           </el-button>
         </el-form-item>
-      </el-col>
+      </div>
     </el-row>
   </el-form>
   <div class="font-bold text-lg text-sm-green border-b my-4 py-2">
