@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { usePatientStore } from '@/stores/patientStore'
 import axios from 'axios'
+import { ElMessage } from 'element-plus';
 
 const patientStore = usePatientStore()
 const patient = computed(() => patientStore.patient)
