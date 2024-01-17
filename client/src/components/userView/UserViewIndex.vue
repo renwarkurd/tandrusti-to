@@ -31,6 +31,10 @@ function registerProvider() {
   router.push({ name: 'provider-list' })
 }
 
+function changeLang(lang) {
+  authStore.changeLocale(lang)
+}
+
 function viewPatient() {
   router.push({ name: 'view-patient', params: { code: ptSearch.value } })
   ptSearch.value = null
@@ -51,6 +55,13 @@ async function handleUserCommand(command) {
   if (command == 'logout') {
     await authStore.logout()
     router.push('/')
+  }
+}
+async function handleChangeLocale(command) {
+  if (command == 'setLocaleToCkb') {
+    changeLang('ckb')
+  } else if (command == 'setLocaleToEn') {
+    changeLang('en')
   }
 }
 </script>
@@ -74,6 +85,7 @@ async function handleUserCommand(command) {
         >
           <el-select
             v-model="ptSearch"
+            icon="Search"
             filterable
             remote
             reserve-keyword
@@ -121,6 +133,22 @@ async function handleUserCommand(command) {
           >
             {{ $t('Register Provider') }}
           </el-button>
+
+          <el-dropdown
+            trigger="click"
+            @command="handleChangeLocale"
+          >
+            <el-button text>
+              {{ authStore.locale == 'ckb' ? 'کوردی' : 'English' }}
+              <el-icon class="ms-2"><ArrowDown /></el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="setLocaleToCkb">کوردی</el-dropdown-item>
+                <el-dropdown-item command="setLocaleToEn">English</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
 
           <el-dropdown
             trigger="click"

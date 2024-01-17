@@ -620,28 +620,7 @@ Create laboratory result record for specified patient.
   
 ```json
 {
-    "patient": {
-        "code": 98387412381721, // required
-        "code_type": 1, // required code_type_id is provided with another api
-        "first_name": "ئاڵێ", // required
-        "middle_name": "ئاوات", // required
-        "last_name": "عمر", // required
-        "gender": 0, // required 0: male, 1: female
-        "dob_year": 1999, // required
-        "dob_month": 4, // required
-        "dob_day": 14, // required
-        "city_id": 15, // not required, city_id is provided with another api
-        "occupation": "کارمەند", // not required
-        "address": "ئازادی", // not required
-        "contact_1": "07701112233", // not required
-        "contact_2": "07501112233", // not required
-        "marital_status": "Single", // not required
-        "blood_group": "B+", // not required
-        "spouse_fullname": null, // not required
-        "spouse_dob": null, // not required
-        "spouse_contact": null, // not required
-        "spouse_occupation": null // not required
-    },
+    "patient_code": "", // Required, with FormData
     "files": [] // FormData of multiple files
 }
 ```
@@ -671,31 +650,10 @@ Create radiology result record for specified patient.
   <summary><i>Click here to show the example</i></summary>
     
   ```json
-  {
-      "patient": {
-          "code": 98387412381721, // required
-          "code_type": 1, // required code_type_id is provided with another api
-          "first_name": "ئاڵێ", // required
-          "middle_name": "ئاوات", // required
-          "last_name": "عمر", // required
-          "gender": 0, // required 0: male, 1: female
-          "dob_year": 1999, // required
-          "dob_month": 4, // required
-          "dob_day": 14, // required
-          "city_id": 15, // not required, city_id is provided with another api
-          "occupation": "کارمەند", // not required
-          "address": "ئازادی", // not required
-          "contact_1": "07701112233", // not required
-          "contact_2": "07501112233", // not required
-          "marital_status": "Single", // not required
-          "blood_group": "B+", // not required
-          "spouse_fullname": null, // not required
-          "spouse_dob": null, // not required
-          "spouse_contact": null, // not required
-          "spouse_occupation": null // not required
-      },
-      "files": [] // FormData of multiple files
-  }
+    {
+        "patient_code": "", // Required, with FormData
+        "files": [] // FormData of multiple files
+    }
   ```
 </details>
 
