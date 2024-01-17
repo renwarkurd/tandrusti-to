@@ -100,6 +100,18 @@ function loginAsUser() {
                 <span class="text-white">بینینەوەی داتاکانم</span>
               </el-button>
             </el-form-item>
+
+            <el-form-item>
+              <p>:نموونەی چەند کۆدێک بۆ تاقیکردنەوە</p>
+            </el-form-item>
+            <el-form-item>
+              <ul>
+                <li>199708955200</li>
+                <li>199608355238</li>
+                <li>A17582045</li>
+                <li>197038556289</li>
+              </ul>
+            </el-form-item>
           </el-form>
         </div>
       </el-col>
